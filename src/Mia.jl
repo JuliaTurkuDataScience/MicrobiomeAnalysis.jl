@@ -1,22 +1,22 @@
 module Mia
 
-using FdeSolver, Microbiome, SummarizedExperiments
-using DataFrames, DataStructures, Distances, MultivariateStats
+using FdeSolver, SummarizedExperiments
+using DataFrames, DataStructures
+import Distances: pairwise, BrayCurtis, HellingerDist, Jaccard
+import Microbiome: shannon, ginisimpson
+import MultivariateStats: fit, MDS
 
-include("main.jl")
+include("alpha.jl")
+include("beta.jl")
 
-export
+export(shannon)
+export(ginisimpson)
+export(shannon)
+export(ginisimpson)
 
-    # alpha diversity
-    shannon_se
-    ginisimpson_se
-    shannon_se!
-    ginisimpson_se!
-
-    # beta diversity
-    braycurtis_se
-    jaccard_se
-    hellinger_se
-    pcoa_se
+export(braycurtis)
+export(jaccard)
+export(hellinger)
+export(pcoa)
 
 end

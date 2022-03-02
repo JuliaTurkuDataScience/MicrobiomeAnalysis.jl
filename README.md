@@ -4,8 +4,25 @@ This package aims to integrate the R-based [SummarizedExperiment](https://github
 
 ## Temporary installation
 
-```
+To avail of its functionality, clone this repository on your local machine with:
+
+```bash
 git clone git@github.com:microbiome/mia.git
+cd Mia.jl
+```
+
+and run the following in Julia:
+
+```julia
+]activate .
+[esc]using Mia
+```
+
+Now you should be able to access and use all exported functions, for instance:
+
+```julia
+shannon
+> shannon (generic function with 3 methods)
 ```
 
 ## Temporary documentation

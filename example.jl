@@ -1,12 +1,9 @@
 ##### DEPENDENCIES #####
 
-# this section will be later replaced with the module src/Mia.jl,
-# that is, the core of the package, which still need some fixes
-# using Mia
-using FdeSolver, Microbiome, SummarizedExperiments
-using DataFrames, DataStructures, Distances, MultivariateStats
-using Plots, Random
-include("./src/main.jl")
+using Mia
+using FdeSolver, SummarizedExperiments
+using DataFrames, DataStructures
+using Plots, Random, MultivariateStats
 
 ##### SIMULATION #####
 
@@ -74,25 +71,25 @@ se = SummarizedExperiment(assays, rowdata, coldata)
 ##### ALPHA DIVERSITY #####
 
 # estimate shannon diversity index
-shannon_output = shannon_se(se, "sim")
+shannon_output = shannon(se, "sim")
 # estimate ginisimpson diversity index
-ginisimpson_output = ginisimpson_se(se, "sim")
+ginisimpson_output = ginisimpson(se, "sim")
 # estimate and store shannon diversity index into se
-shannon_se!(se, "sim")
+shannon!(se, "sim")
 # estimate and store ginisimpson diversity index into se
-ginisimpson_se!(se, "sim")
+ginisimpson!(se, "sim")
 
 ##### BETA DIVERSITY
 
 # evaluate braycurtis dissimilarity index
-braycurtis_output = braycurtis_se(se, "sim")
+braycurtis_output = braycurtis(se, "sim")
 # evaluate jaccard dissimilarity index
-jaccard_output = jaccard_se(se, "sim")
+jaccard_output = jaccard(se, "sim")
 # evaluate hellinger dissimilarity index
-hellinger_output = hellinger_se(se, "sim")
+hellinger_output = hellinger(se, "sim")
 
 # run pcoa
-pcoa_model = pcoa_se(se, "sim")
+pcoa_model = pcoa(se, "sim")
 pcoa_output = predict(pcoa_model)
 
 # prepare colour labels for scatter plot according to sample origin
