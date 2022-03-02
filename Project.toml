@@ -1,0 +1,24 @@
+name = "Mia"
+uuid = "09137a06-29c6-4e66-9476-ab7e4b8c7492"
+authors = ["Giulio Benedetti <giuliobene2000@gmail.com> and contributors"]
+version = "0.1.0"
+
+[deps]
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+DataStructures = "864edb3b-99cc-5e75-8d2d-829cb0a9cfe8"
+Distances = "b4f34e82-e78d-54a5-968a-f98e89d6e8f7"
+FdeSolver = "1746e360-1058-44a5-9855-ddd460437d0c"
+Microbiome = "3bd8f0ae-a0f2-5238-a5af-e1b399a4940c"
+MultivariateStats = "6f286f6a-111f-5878-ab1e-185364afe411"
+SummarizedExperiments = "b04b66ec-f619-4ebf-810e-cf5ccc546695"
+
+[compat]
+julia = "1"
+
+[extras]
+Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
+SafeTestsets = "1bc83da4-3b8d-516f-aca4-4fe02f6d838f"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Random", "SafeTestsets", "Test"]
