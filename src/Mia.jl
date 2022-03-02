@@ -1,7 +1,7 @@
 module Mia
 
 using FdeSolver, Microbiome, SummarizedExperiments
-using DataFrames, DataStructures, Distances
+using DataFrames, DataStructures, Distances, MultivariateStats
 
 include("main.jl")
 
