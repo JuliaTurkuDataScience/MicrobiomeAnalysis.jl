@@ -14,6 +14,7 @@ SummarizedExperiments = "b04b66ec-f619-4ebf-810e-cf5ccc546695"
 
 [compat]
 Distances = "0.10"
+FdeSolver = "1"
 julia = "1"
 
 [extras]
