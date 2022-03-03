@@ -14,6 +14,10 @@ SummarizedExperiments = "b04b66ec-f619-4ebf-810e-cf5ccc546695"
 
 [compat]
 MultivariateStats = "0.9"
+Microbiome = "0.9"
+DataFrames = "1"
+DataStructures = "0.18"
+FdeSolver = "1"
 julia = "1"
 
 [extras]
