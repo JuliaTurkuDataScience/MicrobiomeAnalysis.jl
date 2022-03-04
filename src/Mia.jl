@@ -11,8 +11,8 @@ include("beta.jl")
 
 export(shannon)
 export(ginisimpson)
-export(shannon)
-export(ginisimpson)
+export(shannon!)
+export(ginisimpson!)
 
 export(braycurtis)
 export(jaccard)
