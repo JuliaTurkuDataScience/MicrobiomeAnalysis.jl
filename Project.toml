@@ -13,6 +13,11 @@ MultivariateStats = "6f286f6a-111f-5878-ab1e-185364afe411"
 SummarizedExperiments = "b04b66ec-f619-4ebf-810e-cf5ccc546695"
 
 [compat]
+Distances = "0.10"
+MultivariateStats = "0.9"
+Microbiome = "0.9"
+DataFrames = "1"
+DataStructures = "0.18"
 FdeSolver = "1"
 julia = "1"
 
