@@ -53,7 +53,7 @@ model that can be executed with `predict(model)`.
 - `se::SummarizedExperiment`: the experiment object of interest.
 - `assay_name::String`: the name of the assay to base the evaluation on.
 """
-function pcoa(se::SummarizedExperiment, assay_name::String, dist = braycurtis_se, dim_number = 3)
+function pcoa(se::SummarizedExperiment, assay_name::String; dist = braycurtis, dim_number = 3)
 
     return fit(MDS, dist(se, assay_name), maxoutdim = dim_number, distances = true)
 
