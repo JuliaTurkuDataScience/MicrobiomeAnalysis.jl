@@ -1,0 +1,38 @@
+name: documenter
+on:
+  - push
+  - pull_request
+jobs:
+  docs:
+    name: Documentation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+      - uses: actions/checkout@v2
+
+      - name: Set up Julia
+        uses: julia-actions/setup-julia@v1
+        with:
+          version: '1.7'
+
+      - name: Build package
+        run: |
+          julia --project=docs -e '
+            import Pkg; Pkg.add("Documenter")
+            using Pkg
+            Pkg.develop(PackageSpec(path=pwd()))
+            Pkg.instantiate()'
+
+      - name: Run doctests
+        run: |
+          julia --project=docs -e '
+            import Pkg; Pkg.add("Documenter")
+            using Documenter: doctest
+            using Mia
+            doctest(Mia)'
+
+      - name: Deploy documentation
+        run: julia --project=docs docs/make.jl
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DOCUMENTER_KEY: ${{ secrets.DOCUMENTER_KEY }}
