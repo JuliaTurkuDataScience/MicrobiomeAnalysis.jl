@@ -10,15 +10,16 @@ Distances = "b4f34e82-e78d-54a5-968a-f98e89d6e8f7"
 FdeSolver = "1746e360-1058-44a5-9855-ddd460437d0c"
 Microbiome = "3bd8f0ae-a0f2-5238-a5af-e1b399a4940c"
 MultivariateStats = "6f286f6a-111f-5878-ab1e-185364afe411"
+SafeTestsets = "1bc83da4-3b8d-516f-aca4-4fe02f6d838f"
 SummarizedExperiments = "b04b66ec-f619-4ebf-810e-cf5ccc546695"
 
 [compat]
-Distances = "0.10"
-MultivariateStats = "0.9"
-Microbiome = "0.9"
 DataFrames = "1"
 DataStructures = "0.18"
+Distances = "0.10"
 FdeSolver = "1"
+Microbiome = "0.9"
+MultivariateStats = "0.9"
 julia = "1"
 
 [extras]
@@ -28,4 +29,4 @@ SafeTestsets = "1bc83da4-3b8d-516f-aca4-4fe02f6d838f"
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
 [targets]
-test = ["Random", "SafeTestsets", "Test"]
+test = ["SafeTestsets", "Test"]

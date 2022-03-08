@@ -1,6 +1,5 @@
-using Mia
-using Test
+using SafeTestsets
 
-@testset "Mia.jl" begin
-    # Write your tests here.
-end
+@safetestset "Estimating alpha diversity" begin include("test_alpha.jl") end
+
+# @safetestset "Estimating beta diversity" begin include("test_beta.jl") end

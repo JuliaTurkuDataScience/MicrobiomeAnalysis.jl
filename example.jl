@@ -44,7 +44,7 @@ end
 # evaluate numerical solution
 t, Xapp = FDEsolver(F, tSpan, X0, β, par, h = h)
 
-##### SUMMARIZEDEXPERIMENT #####
+##### SUMMARIZED EXPERIMENT #####
 
 # convert transposed time series into Dictionary and store it into assays
 assays = OrderedDict{String, AbstractArray}("sim" => Xapp')
@@ -88,8 +88,8 @@ jaccard_output = jaccard(se, "sim")
 # evaluate hellinger dissimilarity index
 hellinger_output = hellinger(se, "sim")
 
-# run pcoa
-pcoa_model = pcoa(se, "sim")
+# run pcoa across 4 dimensions with jaccard dissimilarity
+pcoa_model = pcoa(se, "sim", dist = jaccard, dim_number = 4)
 pcoa_output = predict(pcoa_model)
 
 # prepare colour labels for scatter plot according to sample origin
@@ -99,9 +99,9 @@ river = pcoa_output[:, x_labels .== "river"]
 ocean = pcoa_output[:, x_labels .== "ocean"]
 
 # plot pcoa
-p1 = scatter(lake[1, :], lake[2, :], lake[3, :])
-scatter!(river[1, :], river[2, :], river[3, :])
-scatter!(ocean[1, :], ocean[2, :], ocean[3, :])
+p1 = scatter(lake[1, :], lake[2, :], lake[4, :])
+scatter!(river[1, :], river[2, :], river[4, :])
+scatter!(ocean[1, :], ocean[2, :], ocean[4, :])
 
 ##### ABUNDANCE VS TIME PLOT #####
 
