@@ -1,5 +1,6 @@
 # Mia.jl
 
+[![CI](https://github.com/JuliaTurkuDataScience/Mia.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/JuliaTurkuDataScience/Mia.jl/actions/workflows/CI.yml)
 [![codecov](https://codecov.io/gh/JuliaTurkuDataScience/Mia.jl/branch/main/graph/badge.svg?token=VHEH1ZQLPA)](https://codecov.io/gh/JuliaTurkuDataScience/Mia.jl)
 
 This package aims to integrate the R-based [SummarizedExperiment](https://github.com/LTLA/SummarizedExperiments.jl) objects with common methods for microbiome analysis, and intends to reflect the [mia project](https://github.com/microbiome/mia/) in the Julia ecosystem.
