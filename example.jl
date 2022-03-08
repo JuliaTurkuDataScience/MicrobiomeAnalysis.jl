@@ -99,9 +99,9 @@ river = pcoa_output[:, x_labels .== "river"]
 ocean = pcoa_output[:, x_labels .== "ocean"]
 
 # plot pcoa
-p1 = scatter(lake[1, :], lake[2, :], lake[3, :])
-scatter!(river[1, :], river[2, :], river[3, :])
-scatter!(ocean[1, :], ocean[2, :], ocean[3, :])
+p1 = scatter(lake[1, :], lake[2, :], lake[4, :])
+scatter!(river[1, :], river[2, :], river[4, :])
+scatter!(ocean[1, :], ocean[2, :], ocean[4, :])
 
 ##### ABUNDANCE VS TIME PLOT #####
 
