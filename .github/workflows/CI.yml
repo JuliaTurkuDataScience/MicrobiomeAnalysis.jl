@@ -20,6 +20,8 @@ jobs:
     steps:
       - name: Check out
         uses: actions/checkout@v2
+
+      - name: Set up Julia
         uses: julia-actions/setup-julia@v1
         with:
           version: ${{ matrix.version }}
@@ -45,6 +47,8 @@ jobs:
 
       - name: Process code coverage
         uses: julia-actions/julia-processcoverage@v1
+
+      - name: Run codecod action
         uses: codecov/codecov-action@v1
         with:
           file: lcov.info
