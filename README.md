@@ -33,3 +33,5 @@ shannon
 ## Temporary documentation
 
 Available functions are described in [main.jl](https://github.com/JuliaTurkuDataScience/Mia.jl/blob/main/src/main.jl) and used for a basic microbiome workflow in [example.jl](https://github.com/JuliaTurkuDataScience/Mia.jl/blob/main/example.jl).
+
+.
