@@ -1,5 +1,6 @@
 # Mia.jl
 
+[![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://juliaturkudatascience.github.io/Mia.jl/stable/readme/)
 [![CI](https://github.com/JuliaTurkuDataScience/Mia.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/JuliaTurkuDataScience/Mia.jl/actions/workflows/CI.yml)
 [![codecov](https://codecov.io/gh/JuliaTurkuDataScience/Mia.jl/branch/main/graph/badge.svg?token=VHEH1ZQLPA)](https://codecov.io/gh/JuliaTurkuDataScience/Mia.jl)
 
@@ -33,5 +34,3 @@ shannon
 ## Temporary documentation
 
 Available functions are described in [main.jl](https://github.com/JuliaTurkuDataScience/Mia.jl/blob/main/src/main.jl) and used for a basic microbiome workflow in [example.jl](https://github.com/JuliaTurkuDataScience/Mia.jl/blob/main/example.jl).
-
-.
