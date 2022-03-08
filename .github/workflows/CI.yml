@@ -19,14 +19,14 @@ jobs:
           - x64
     steps:
       - name: Check out
-      - uses: actions/checkout@v2
-      - uses: julia-actions/setup-julia@v1
+        uses: actions/checkout@v2
+        uses: julia-actions/setup-julia@v1
         with:
           version: ${{ matrix.version }}
           arch: ${{ matrix.arch }}
 
       - name: Load cache
-      - uses: actions/cache@v1
+        uses: actions/cache@v1
         env:
           cache-name: cache-artifacts
         with:
@@ -38,13 +38,13 @@ jobs:
             ${{ runner.os }}-
 
       - name: Build package
-      - uses: julia-actions/julia-buildpkg@v1
+        uses: julia-actions/julia-buildpkg@v1
 
       - name: Run tests
-      - uses: julia-actions/julia-runtest@v1
+        uses: julia-actions/julia-runtest@v1
 
       - name: Process code coverage
-      - uses: julia-actions/julia-processcoverage@v1
-      - uses: codecov/codecov-action@v1
+        uses: julia-actions/julia-processcoverage@v1
+        uses: codecov/codecov-action@v1
         with:
           file: lcov.info
