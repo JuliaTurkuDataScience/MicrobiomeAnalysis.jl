@@ -21,6 +21,7 @@ Distances = "0.10"
 FdeSolver = "1"
 Microbiome = "0.9"
 MultivariateStats = "0.9"
+SummarizedExperiments = "0.1"
 julia = "1"
 
 [extras]
