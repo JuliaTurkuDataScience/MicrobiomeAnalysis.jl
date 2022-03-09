@@ -33,4 +33,4 @@ shannon
 
 ## Documentation
 
-Available functions are described in the [Maual page](https://juliaturkudatascience.github.io/Mia.jl/stable/) and used for a basic microbiome workflow in the [Examples page](https://juliaturkudatascience.github.io/Mia.jl/stable/examples/).
+Available functions are described in the [Manual page](https://juliaturkudatascience.github.io/Mia.jl/stable/) and used for a basic microbiome workflow in the [Examples page](https://juliaturkudatascience.github.io/Mia.jl/stable/examples/).
