@@ -13,7 +13,7 @@ Microbial community dynamics and time series are simulated through [FdeSolver.jl
 To avail of its functionality, clone this repository on your local machine with:
 
 ```bash
-git clone git@github.com:microbiome/mia.git
+git clone https://github.com/JuliaTurkuDataScience/Mia.jl.git
 cd Mia.jl
 ```
 
