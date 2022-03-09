@@ -1,53 +1,19 @@
 ##### DEPENDENCIES #####
 
 using Mia
-using FdeSolver, SummarizedExperiments
+using SummarizedExperiments
 using DataFrames, DataStructures
-using Plots, Random, MultivariateStats
+using Plots, MultivariateStats
 
 ##### SIMULATION #####
 
-# define parameters
-tSpan = [0, 50]  # time span
-h = 0.1          # time step
-N = 20           # number of species
-β = ones(N)      # order of derivatives
-X0 = 2 * rand(N) # initial abundances
-
-# define system of differential equations
-Random.seed!(1234)
-par = [2, 2 * rand(N), rand(N), 4 * rand(N, N), N]
-
-function F(t, x, par)
-
-    l = par[1] # Hill coefficient
-    b = par[2] # growth rates
-    k = par[3] # death rates
-    K = par[4] # inhibition matrix
-    N = par[5] # number of species
-
-    F = zeros(N)
-    for i in 1:N
-
-        # inhibition functions
-        f = prod(K[i, 1:end .!= i].^l ./ (K[i, 1:end .!= i] .^ l .+ x[1:end .!= i].^l))
-
-        # ode
-        F[i] = x[i] .* (b[i] .* f .- k[i] .* x[i])
-
-    end
-
-    return F
-
-end
-
 # evaluate numerical solution
-t, Xapp = FDEsolver(F, tSpan, X0, β, par, h = h)
+t, Xapp = LVmodel()
 
 ##### SUMMARIZED EXPERIMENT #####
 
 # convert transposed time series into Dictionary and store it into assays
-assays = OrderedDict{String, AbstractArray}("sim" => Xapp')
+assays = OrderedDict{String, AbstractArray}("sim" => Xapp)
 
 # produce feature data including feature name (because it's required by the
 # SummarizedExperiment function) and information on genus and species
