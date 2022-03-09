@@ -27,7 +27,8 @@ makedocs(format = Documenter.HTML(),
          modules = [Mia],
          pages=[
              "Home" => "readme.md",
-             "Manual" => "index.md"
+             "Manual" => "index.md",
+             "Examples" => "examples.md"
                ])
 
 deploydocs(repo="github.com/JuliaTurkuDataScience/Mia.jl", push_preview=true)
