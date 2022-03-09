@@ -17,3 +17,6 @@ jaccard
 hellinger
 pcoa
 ```
+```docs
+LVmodel
+```
