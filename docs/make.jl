@@ -1,5 +1,6 @@
 push!(LOAD_PATH,"../src/")
 using Mia, Documenter
+ENV["GKSwstype"] = "100"
 
 generated_path = joinpath(@__DIR__, "src")
 base_url = "https://github.com/JuliaTurkuDataScience/Mia.jl/blob/main/"
