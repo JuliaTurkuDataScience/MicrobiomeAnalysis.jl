@@ -31,6 +31,6 @@ shannon
 > shannon (generic function with 3 methods)
 ```
 
-## Temporary documentation
+## Documentation
 
-Available functions are described in [main.jl](https://github.com/JuliaTurkuDataScience/Mia.jl/blob/main/src/main.jl) and used for a basic microbiome workflow in [example.jl](https://github.com/JuliaTurkuDataScience/Mia.jl/blob/main/example.jl).
+Available functions are described in the [Maual page](https://juliaturkudatascience.github.io/Mia.jl/stable/) and used for a basic microbiome workflow in the [Examples page](https://juliaturkudatascience.github.io/Mia.jl/stable/examples/).

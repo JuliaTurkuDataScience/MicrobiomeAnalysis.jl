@@ -17,6 +17,6 @@ jaccard
 hellinger
 pcoa
 ```
-```docs
+```@docs
 LVmodel
 ```
