@@ -1,6 +1,8 @@
 push!(LOAD_PATH,"../src/")
-using Mia, Documenter
+using Mia, Documenter, DocumenterCitations
 ENV["GKSwstype"] = "100"
+
+bib = CitationBibliography("Mia.bib")
 
 generated_path = joinpath(@__DIR__, "src")
 base_url = "https://github.com/JuliaTurkuDataScience/Mia.jl/blob/main/"
@@ -22,14 +24,16 @@ open(joinpath(generated_path, "readme.md"), "w") do io
     end
 end
 
-makedocs(format = Documenter.HTML(),
+makedocs(bib,
+         format = Documenter.HTML(),
          authors = "Giulio Benedetti, Leo Lahti",
          sitename = "Mia.jl",
          modules = [Mia],
          pages=[
              "Home" => "readme.md",
              "Manual" => "index.md",
-             "Examples" => "examples.md"
+             "Examples" => "examples.md",
+             "Bibliography" => "bibliography.md"
                ])
 
 deploydocs(repo="github.com/JuliaTurkuDataScience/Mia.jl", push_preview=true)

@@ -1,7 +1,9 @@
 # API
 
 ## Package features
-- functions and workflows for the analysis of microbiome data.
+- functions and workflows for the analysis of microbiome data;
+- simulation of data through FdeSolver.jl [Benedetti:2022](@cite);
+- operations on SummarizedExperiment objects [Morgan:2021](@cite).
 
 ## Utility documentation
 
