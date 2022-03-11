@@ -1,26 +1,36 @@
-Mia.jl enables the analysis of microbial but also more generic data cantained by SummarizedExperiment objects, therefore its usage is closely related and applicable to the utilities from a few other packages.
+# Tutorial
+
+## Dependencies
+
+Mia.jl enables the analysis of microbial but also more generic data cantained by SummarizedExperiment objects, therefore its usage is closely related and applicable to the utilities from a few other packages:
+
+*SummarizedExperiments.jl
+*Microbiome.jl
+*FdeSolver.jl
+*MultivariateStats.jl
+*DataFrames.jl
+*DataStructures.jl
 
 ```@setup mia
-# DEPENDENCIES
 using Mia, SummarizedExperiments
 using DataFrames, DataStructures
 using Plots, MultivariateStats
 ```
 
+## Simulation
+
 Real as well as simulated OTU tables or time series can be stored in a SummarizedExperiment object. In this example, a time series is generated with the function `LVmodel`, which runs a Lotka-Volterra model by means of [FdeSolver.jl](https://github.com/JuliaTurkuDataScience/FdeSolver.jl). To achieve more control over the simulation, it is possible to produce custom models by directly using the `FDEsolver` function from the aforementioned package (see a few [examples](https://juliaturkudatascience.github.io/FdeSolver.jl/stable/examples/)).
 
 ```@repl mia
-# SIMULATION
-
 # evaluate numerical solution
 t, Xapp = LVmodel();
 ```
 
 Next, the assay produced through `LVmodel` is combined with the meta data on samples or time steps (`coldata`) and that on features or species (`rowdata`) into a SummarizedExperiment object.
 
-```@repl mia
-# SUMMARIZED EXPERIMENT
+## Summarized Experiment
 
+```@repl mia
 # convert transposed time series into Dictionary and store it into assays
 assays = OrderedDict{String, AbstractArray}("sim" => Xapp);
 
@@ -44,11 +54,11 @@ coldata = DataFrame(
 se = SummarizedExperiment(assays, rowdata, coldata);
 ```
 
+## α diversity
+
 Alpha diversity is then estimated with two different metrics (shannon and ginisimpson indices).
 
 ```@repl mia
-# ALPHA DIVERSITY
-
 # estimate shannon diversity index
 shannon_output = shannon(se, "sim");
 # estimate ginisimpson diversity index
@@ -59,11 +69,11 @@ shannon!(se, "sim");
 ginisimpson!(se, "sim");
 ```
 
+## β diversity
+
 Finally, a few dissimilarity metrics for beta diversity are evaluated and the Jaccard index is used to run a Principal Coordinate Analysis across 4 dimensions, which is then visualised on a scatter plot.
 
 ```@repl mia
-# BETA DIVERSITY
-
 # evaluate braycurtis dissimilarity index
 braycurtis_output = braycurtis(se, "sim");
 # evaluate jaccard dissimilarity index
@@ -90,11 +100,11 @@ savefig("plot1.png"); nothing # hide
 
 ![plot1](plot1.png)
 
+## Abundance vs time plot
+
 Below is a possible method to plot the abundance of each strain throughout the time series.
 
 ```@repl mia
-# ABUNDANCE VS TIME PLOT
-
 p2 = plot(se.coldata.time, assay(se, "sim")[1, :]);
 
 for i in 2:size(se)[1]

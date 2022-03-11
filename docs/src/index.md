@@ -1,9 +1,11 @@
 # API
 
 ## Package features
-- tools for microbial analysis
+- functions and workflows for the analysis of microbiome data.
 
-## Function Documentation
+## Utility documentation
+
+### α diversity
 
 ```@docs
 shannon
@@ -11,12 +13,18 @@ shannon!
 ginisimpson
 ginisimpson!
 ```
+
+### β diversity
+
 ```@docs
 braycurtis
 jaccard
 hellinger
 pcoa
 ```
+
+### Modelling and Simulations
+
 ```@docs
 LVmodel
 ```
