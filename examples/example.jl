@@ -71,10 +71,4 @@ scatter!(ocean[1, :], ocean[2, :], ocean[4, :])
 
 ##### ABUNDANCE VS TIME PLOT #####
 
-p2 = plot(se.coldata.time, assay(se, "sim")[1, :])
-
-for i in 2:size(se)[1]
-
-    display(plot!(se.coldata.time, assay(se, "sim")[i, :]))
-
-end
+abundance_plot(se, "sim")

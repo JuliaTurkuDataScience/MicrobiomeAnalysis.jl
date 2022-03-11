@@ -105,13 +105,7 @@ savefig("plot1.png"); nothing # hide
 Below is a possible method to plot the abundance of each strain throughout the time series.
 
 ```@repl mia
-p2 = plot(se.coldata.time, assay(se, "sim")[1, :]);
-
-for i in 2:size(se)[1]
-
-    display(plot!(se.coldata.time, assay(se, "sim")[i, :]));
-
-end
+p2 = abundance_plot(se, "sim")
 savefig("plot2.png"); nothing # hide
 ```
 
