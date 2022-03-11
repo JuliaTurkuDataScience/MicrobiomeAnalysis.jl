@@ -4,12 +4,12 @@
 
 Mia.jl enables the analysis of microbial but also more generic data cantained by SummarizedExperiment objects, therefore its usage is closely related and applicable to the utilities from a few other packages:
 
-*SummarizedExperiments.jl
-*Microbiome.jl
-*FdeSolver.jl
-*MultivariateStats.jl
-*DataFrames.jl
-*DataStructures.jl
+- SummarizedExperiments.jl
+- Microbiome.jl
+- FdeSolver.jl
+- MultivariateStats.jl
+- DataFrames.jl
+- DataStructures.jl
 
 ```@setup mia
 using Mia, SummarizedExperiments
@@ -26,9 +26,9 @@ Real as well as simulated OTU tables or time series can be stored in a Summarize
 t, Xapp = LVmodel();
 ```
 
-Next, the assay produced through `LVmodel` is combined with the meta data on samples or time steps (`coldata`) and that on features or species (`rowdata`) into a SummarizedExperiment object.
-
 ## Summarized Experiment
+
+Next, the assay produced through `LVmodel` is combined with the meta data on samples or time steps (`coldata`) and that on features or species (`rowdata`) into a SummarizedExperiment object.
 
 ```@repl mia
 # convert transposed time series into Dictionary and store it into assays
