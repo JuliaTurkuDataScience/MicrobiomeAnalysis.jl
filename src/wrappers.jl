@@ -65,3 +65,21 @@ function lv(t, x, par)
     return F
 
 end
+
+function abundance_plot(se::SummarizedExperiment, assay_name::String)
+
+    if sum("time" .== names(coldata(se))) == 0
+
+        error("coldata(se) should include a column named 'time' containing an array of sampling times; for example, add it with coldata(se).time = 1:10 if there are 10 samples.")
+
+    end
+
+    labels = reshape(t.rowdata.name, (1, length(t.rowdata.name)))
+
+    p = plot(t.coldata.time, assay(t, "foo")',
+             label = labels, legend_position = :outerleft,
+             xaxis = "Time", yaxis = "Abundance")
+
+    return(p)
+
+end
