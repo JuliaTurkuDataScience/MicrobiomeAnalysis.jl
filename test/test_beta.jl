@@ -1,21 +1,21 @@
 using Mia
-using SummarizedExperiments, Distances
+using SummarizedExperiments
 using Test
 
 @testset "Mia.jl" begin
 
     se = exampleobject(40, 20)
 
-    braycurtis_output = Mia.braycurtis(se, "foo")
-    jaccard_output = Mia.jaccard(se, "bar")
+    braycurtis_output = braycurtis(se, "foo")
+    jaccard_output = jaccard(se, "bar")
 #    hellinger_output = hellinger(se, "whee")
 
-    pcoa_b = Mia.pcoa(se, "whee")
+    pcoa_b = pcoa(se, "whee")
 #    pcoa_j = pcoa(se, "foo")
 #    pcoa_h = pcoa(se, "bar")
 
-#    @test @isdefined braycurtis_output
-#    @test @isdefined pcoa_h
+    @test @isdefined braycurtis_output
+    @test @isdefined pcoa_b
 
 end
 
