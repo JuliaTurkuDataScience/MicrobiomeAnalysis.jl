@@ -87,7 +87,7 @@ function abundance_plot(se::SummarizedExperiment, assay_name::String)
 
     labels = reshape(se.rowdata.name, (1, length(se.rowdata.name)))
 
-    p = plot(se.coldata.time, assay(se, "foo")',
+    p = plot(se.coldata.time, assay(se, assay_name)',
              label = labels, legend_position = :outerleft,
              xaxis = "Time", yaxis = "Abundance")
 
