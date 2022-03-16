@@ -94,3 +94,14 @@ function abundance_plot(se::SummarizedExperiment, assay_name::String)
     return(p)
 
 end
+
+function size(se::SummarizedExperiment)
+
+    nrow(se.rowdata), nrow(se.coldata)
+
+end
+
+nrow(se::SummarizedExperiment) = nrow(se.rowdata)
+ncol(se::SummarizedExperiment) = nrow(se.coldata)
+
+size(se::SummarizedExperiment, dim::Int64) = ifelse(dim == 1, nrow(se), ncol(se))
