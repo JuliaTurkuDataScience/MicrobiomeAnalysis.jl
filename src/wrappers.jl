@@ -65,3 +65,32 @@ function lv(t, x, par)
     return F
 
 end
+
+"""
+    abundance_plot(se::SummarizedExperiment, assay_name::String)
+
+Plots a time series of the abundance for each feature (row) of an assay in
+a SummarizedExperiment object. The corresponding should include a column
+named 'time' containing an array of sampling times
+
+# Arguments
+- `se::SummarizedExperiment`: the experiment object of interest.
+- `assay_name::String`: the name of the assay to base the visualisation on.
+"""
+function abundance_plot(se::SummarizedExperiment, assay_name::String)
+
+    if sum("time" .== names(coldata(se))) == 0
+
+        error("coldata(se) should include a column named 'time' containing an array of sampling times; for example, add it with coldata(se).time = 1:10 if there are 10 samples.")
+
+    end
+
+    labels = reshape(se.rowdata.name, (1, length(se.rowdata.name)))
+
+    p = plot(se.coldata.time, assay(se, assay_name)',
+             label = labels, legend_position = :outerleft,
+             xaxis = "Time", yaxis = "Abundance")
+
+    return(p)
+
+end

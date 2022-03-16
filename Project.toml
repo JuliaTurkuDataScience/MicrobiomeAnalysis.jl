@@ -11,6 +11,7 @@ FdeSolver = "1746e360-1058-44a5-9855-ddd460437d0c"
 Microbiome = "3bd8f0ae-a0f2-5238-a5af-e1b399a4940c"
 MultiAssayExperiments = "c9137f73-29f3-4436-b9da-846274f1d332"
 MultivariateStats = "6f286f6a-111f-5878-ab1e-185364afe411"
+Plots = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
 Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
 SummarizedExperiments = "b04b66ec-f619-4ebf-810e-cf5ccc546695"
 
@@ -21,16 +22,13 @@ Distances = "0.10"
 FdeSolver = "1"
 Microbiome = "0.9"
 MultivariateStats = "0.9"
+Plots = "1"
 SummarizedExperiments = "0.1"
 julia = "1"
 
 [extras]
-Plots = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
-Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
 SafeTestsets = "1bc83da4-3b8d-516f-aca4-4fe02f6d838f"
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
 [targets]
-docs = ["Plots"]
-examples = ["Plots"]
 test = ["SafeTestsets", "Test"]

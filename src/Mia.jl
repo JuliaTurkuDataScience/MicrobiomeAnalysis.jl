@@ -1,10 +1,11 @@
 module Mia
 
-using SummarizedExperiments, DataFrames, DataStructures, Random
+import SummarizedExperiments: SummarizedExperiment, assay, rowdata, coldata
 import Distances: pairwise, BrayCurtis, HellingerDist, Jaccard
 import Microbiome: shannon, ginisimpson
 import MultivariateStats: fit, MDS
 import FdeSolver: FDEsolver
+using DataFrames, DataStructures, Random, Plots
 
 include("alpha.jl")
 include("beta.jl")
@@ -21,5 +22,6 @@ export(hellinger)
 export(pcoa)
 
 export(LVmodel)
+export(abundance_plot)
 
 end

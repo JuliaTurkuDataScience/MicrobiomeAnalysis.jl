@@ -1,21 +1,30 @@
 using Mia
-using SummarizedExperiments, Distances
+using SummarizedExperiments, Microbiome
 using Test
 
 @testset "Mia.jl" begin
 
     se = exampleobject(40, 20)
 
-    braycurtis_output = Mia.braycurtis(se, "foo")
-    jaccard_output = Mia.jaccard(se, "bar")
-#    hellinger_output = hellinger(se, "whee")
+    samps = MicrobiomeSample.([samples for samples in se.coldata.name])
+    taxa = [Taxon("$taxa", :species) for taxa in se.rowdata.name]
+    mat = assay(se, "bar")
+    comm = CommunityProfile(mat, taxa, samps)
 
-    pcoa_b = Mia.pcoa(se, "whee")
-#    pcoa_j = pcoa(se, "foo")
-#    pcoa_h = pcoa(se, "bar")
+    microjack = Microbiome.jaccard(comm)
+    miajack = Mia.jaccard(se, "bar")
 
-#    @test @isdefined braycurtis_output
-#    @test @isdefined pcoa_h
+    @test microjack == miajack
+
+    microbray = Microbiome.braycurtis(comm)
+    miabray = Mia.braycurtis(se, "bar")
+
+    @test microbray == miabray
+
+    microhell = Microbiome.hellinger(comm)
+    miahell = Mia.hellinger(se, "bar")
+
+    @test microhell == miahell
 
 end
 

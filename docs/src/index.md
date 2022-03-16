@@ -28,3 +28,9 @@ pcoa
 ```@docs
 LVmodel
 ```
+
+### Visualisation
+
+```@docs
+abundance_plot
+```
