@@ -1,6 +1,6 @@
 ##### DEPENDENCIES #####
 
-using Mia
+using MiaTools
 using SummarizedExperiments
 using DataFrames, DataStructures
 using Plots, MultivariateStats

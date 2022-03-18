@@ -1,8 +1,8 @@
-using Mia
+using MiaTools
 using SummarizedExperiments
 using Test
 
-@testset "Mia.jl" begin
+@testset "MiaTools.jl" begin
 
     se = exampleobject(40, 20)
 
