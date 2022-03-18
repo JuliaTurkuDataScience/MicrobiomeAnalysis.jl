@@ -1,8 +1,8 @@
-using Mia
+using MiaTools
 using SummarizedExperiments, FdeSolver
 using Test
 
-@testset "Mia.jl" begin
+@testset "MiaTools.jl" begin
 
     t, Xapp = LVmodel()
 
