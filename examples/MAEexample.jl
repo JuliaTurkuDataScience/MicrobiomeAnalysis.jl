@@ -3,6 +3,42 @@ using MultiAssayExperiments, SummarizedExperiments
 using DataFrames, DataStructures
 using Plots, MultivariateStats
 
+##### SIMULATION #####
+
+# evaluate numerical solution
+t, Xapp = LVmodel(60)
+
+# convert transposed time series into Dictionary and store it into assays
+assays = OrderedDict{String, AbstractArray}("sim" => Xapp)
+
+# produce feature data including feature name (because it's required by the
+# SummarizedExperiment function) and information on genus and species
+rowdata = DataFrame(
+    name = ["strain$i" for i in 1:size(Xapp, 1)],
+    genus = ["g$i" for i in 1:size(Xapp, 1)],
+    species = ["s$i" for i in 1:size(Xapp, 1)]
+)
+
+# produce sample data including sample name (because it's required by the
+# SummarizedExperiment function) and sampling site
+coldata = DataFrame(
+    name = ["t$i" for i in 1:size(Xapp, 2)],
+    condition = rand(["lake", "ocean", "river"], size(Xapp, 2)),
+    time = t
+)
+
+exp["microbiome"] = SummarizedExperiment(assays, rowdata, coldata)
+se = SummarizedExperiments.exampleobject(20, 501)
+
+
+
+
+
+
+
+
+
+
 
 mae = MultiAssayExperiments.exampleobject()
 se = experiment(mae, "bar", sampledata = false)
