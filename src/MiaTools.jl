@@ -1,4 +1,4 @@
-module Mia
+module MiaTools
 
 import SummarizedExperiments: SummarizedExperiment, assay, rowdata, coldata
 import Distances: pairwise, BrayCurtis, HellingerDist, Jaccard
