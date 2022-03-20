@@ -1,17 +1,17 @@
-using MiaTools
+using MicrobiomeAnalysis
 using SummarizedExperiments, Microbiome
 using Test
 
-@testset "MiaTools.jl" begin
+@testset "MicrobiomeAnalysis.jl" begin
 
     se = exampleobject(40, 20)
 
-    shannon_output = MiaTools.shannon(se, "foo")
-    MiaTools.shannon!(se, "foo")
+    shannon_output = MicrobiomeAnalysis.shannon(se, "foo")
+    MicrobiomeAnalysis.shannon!(se, "foo")
     @test shannon_output == coldata(se).shannon
 
-    ginisimpson_output = MiaTools.ginisimpson(se, "bar")
-    MiaTools.ginisimpson!(se, "bar")
+    ginisimpson_output = MicrobiomeAnalysis.ginisimpson(se, "bar")
+    MicrobiomeAnalysis.ginisimpson!(se, "bar")
     @test ginisimpson_output == coldata(se).ginisimpson
 
     @test Microbiome.shannon(assay(se, "foo")[:, 1]) == coldata(se).shannon[1]

@@ -1,8 +1,8 @@
-using MiaTools
+using MicrobiomeAnalysis
 using SummarizedExperiments, FdeSolver
 using Test
 
-@testset "MiaTools.jl" begin
+@testset "MicrobiomeAnalysis.jl" begin
 
     t, Xapp = LVmodel()
 
