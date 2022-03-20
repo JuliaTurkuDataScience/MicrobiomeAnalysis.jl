@@ -2,7 +2,7 @@
 
 ## Dependencies
 
-MiaTools.jl enables the analysis of microbial but also more generic data cantained by SummarizedExperiment objects, therefore its usage is closely related and applicable to the utilities from a few other packages:
+MicrobiomeAnalysis.jl enables the analysis of microbial but also more generic data cantained by SummarizedExperiment objects, therefore its usage is closely related and applicable to the utilities from a few other packages:
 
 - SummarizedExperiments.jl
 - Microbiome.jl
@@ -12,7 +12,7 @@ MiaTools.jl enables the analysis of microbial but also more generic data cantain
 - DataStructures.jl
 
 ```@setup mia
-using MiaTools, SummarizedExperiments
+using MicrobiomeAnalysis, SummarizedExperiments
 using DataFrames, DataStructures
 using Plots, MultivariateStats
 ```

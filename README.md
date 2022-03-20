@@ -1,8 +1,8 @@
-# MiaTools.jl
+# MicrobiomeAnalysis.jl
 
-[![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://juliaturkudatascience.github.io/MiaTools.jl/stable/readme/)
-[![CI](https://github.com/JuliaTurkuDataScience/MiaTools.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/JuliaTurkuDataScience/MiaTools.jl/actions/workflows/CI.yml)
-[![codecov](https://codecov.io/gh/JuliaTurkuDataScience/MiaTools.jl/branch/main/graph/badge.svg?token=VHEH1ZQLPA)](https://codecov.io/gh/JuliaTurkuDataScience/MiaTools.jl)
+[![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://juliaturkudatascience.github.io/MicrobiomeAnalysis.jl/stable/readme/)
+[![CI](https://github.com/JuliaTurkuDataScience/MicrobiomeAnalysis.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/JuliaTurkuDataScience/MicrobiomeAnalysis.jl/actions/workflows/CI.yml)
+[![codecov](https://codecov.io/gh/JuliaTurkuDataScience/MicrobiomeAnalysis.jl/branch/main/graph/badge.svg?token=VHEH1ZQLPA)](https://codecov.io/gh/JuliaTurkuDataScience/MicrobiomeAnalysis.jl)
 
 This package aims to integrate the R-based [SummarizedExperiment](https://github.com/LTLA/SummarizedExperiments.jl) objects with common methods for microbiome analysis, and intends to reflect the [mia project](https://github.com/microbiome/mia/) in the Julia ecosystem.
 
@@ -13,15 +13,15 @@ Microbial community dynamics and time series are simulated through [FdeSolver.jl
 To avail of its functionality, clone this repository on your local machine with:
 
 ```bash
-git clone https://github.com/JuliaTurkuDataScience/MiaTools.jl.git
-cd MiaTools.jl
+git clone https://github.com/JuliaTurkuDataScience/MicrobiomeAnalysis.jl.git
+cd MicrobiomeAnalysis.jl
 ```
 
 and run the following in Julia:
 
 ```julia
 ]activate .
-[esc]using MiaTools
+[esc]using MicrobiomeAnalysis
 ```
 
 Now you should be able to access and use all exported functions, for instance:
@@ -33,4 +33,4 @@ shannon
 
 ## Documentation
 
-Available functions are described in the [Manual page](https://juliaturkudatascience.github.io/MiaTools.jl/stable/) and used for a basic microbiome workflow in the [Examples page](https://juliaturkudatascience.github.io/MiaTools.jl/stable/examples/).
+Available functions are described in the [Manual page](https://juliaturkudatascience.github.io/MicrobiomeAnalysis.jl/stable/) and used for a basic microbiome workflow in the [Examples page](https://juliaturkudatascience.github.io/MicrobiomeAnalysis.jl/stable/examples/).

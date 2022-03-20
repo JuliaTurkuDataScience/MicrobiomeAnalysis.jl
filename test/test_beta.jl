@@ -1,8 +1,8 @@
-using MiaTools
+using MicrobiomeAnalysis
 using SummarizedExperiments, Microbiome
 using Test
 
-@testset "MiaTools.jl" begin
+@testset "MicrobiomeAnalysis.jl" begin
 
     se = exampleobject(40, 20)
 
@@ -12,23 +12,23 @@ using Test
     comm = CommunityProfile(mat, taxa, samps)
 
     microjack = Microbiome.jaccard(comm)
-    miajack = MiaTools.jaccard(se, "bar")
+    miajack = MicrobiomeAnalysis.jaccard(se, "bar")
 
     @test microjack == miajack
 
     microbray = Microbiome.braycurtis(comm)
-    miabray = MiaTools.braycurtis(se, "bar")
+    miabray = MicrobiomeAnalysis.braycurtis(se, "bar")
 
     @test microbray == miabray
 
     microhell = Microbiome.hellinger(comm)
-    miahell = MiaTools.hellinger(se, "bar")
+    miahell = MicrobiomeAnalysis.hellinger(se, "bar")
 
     @test microhell == miahell
 
 end
 
-# MiaTools.jl: Error During Test at /Users/giuliobene3000/Desktop/Projects/JuliaProjects/MiaTools.jl/test/test_beta.jl:5
+# MicrobiomeAnalysis.jl: Error During Test at /Users/giuliobene3000/Desktop/Projects/JuliaProjects/MicrobiomeAnalysis.jl/test/test_beta.jl:5
 #   Got exception outside of a @test
 #   MethodError: no method matching pairwise(::Distances.BrayCurtis, ::Array{Float32, 3}, ::Array{Float32, 3}; dims=2)
 #   Closest candidates are:
