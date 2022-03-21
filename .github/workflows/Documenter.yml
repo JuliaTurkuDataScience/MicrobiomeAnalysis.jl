@@ -28,7 +28,7 @@ jobs:
           julia --project=docs -e '
             import Pkg; Pkg.add("Documenter")
             using Documenter: doctest
-            using MicobiomeAnalysis
+            using MicrobiomeAnalysis
             doctest(MicrobiomeAnalysis)'
 
       - name: Deploy documentation
