@@ -8,27 +8,13 @@ This package aims to integrate the R-based [SummarizedExperiment](https://github
 
 Microbial community dynamics and time series are simulated through [FdeSolver.jl](https://github.com/JuliaTurkuDataScience/FdeSolver.jl), which is another program previously developed by our group.
 
-## Temporary installation
+## Installation
 
-To avail of its functionality, clone this repository on your local machine with:
-
-```bash
-git clone https://github.com/JuliaTurkuDataScience/MicrobiomeAnalysis.jl.git
-cd MicrobiomeAnalysis.jl
-```
-
-and run the following in Julia:
+This package is registered in the [General Registry](https://github.com/JuliaRegistries/General), so it can be installed as follows:
 
 ```julia
-]activate .
-[esc]using MicrobiomeAnalysis
-```
-
-Now you should be able to access and use all exported functions, for instance:
-
-```julia
-shannon
-> shannon (generic function with 3 methods)
+Pkg.add("MicrobiomeAnalysis")
+using MicrobiomeAnalysis
 ```
 
 ## Documentation
