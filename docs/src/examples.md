@@ -1,15 +1,6 @@
 # Tutorial
 
-## Dependencies
-
-MicrobiomeAnalysis.jl enables the analysis of microbial but also more generic data cantained by SummarizedExperiment objects, therefore its usage is closely related and applicable to the utilities from a few other packages:
-
-- SummarizedExperiments.jl
-- Microbiome.jl
-- FdeSolver.jl
-- MultivariateStats.jl
-- DataFrames.jl
-- DataStructures.jl
+This example walks you through the microdiversity analysis of a time series that simulates a Lotka-Volterra community with 20 strains and 500 time points.
 
 ```@setup mia
 using MicrobiomeAnalysis, SummarizedExperiments
