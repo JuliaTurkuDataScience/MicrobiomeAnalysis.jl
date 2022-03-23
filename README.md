@@ -20,3 +20,20 @@ using MicrobiomeAnalysis
 ## Documentation
 
 Available functions are described in the [Manual page](https://juliaturkudatascience.github.io/MicrobiomeAnalysis.jl/stable/) and used for a basic microbiome workflow in the [Examples page](https://juliaturkudatascience.github.io/MicrobiomeAnalysis.jl/stable/examples/).
+
+## References
+
+MicrobiomeAnalysis.jl enables the analysis of microbial but also more generic data contained by SummarizedExperiment objects, therefore its usage is closely related and applicable to the utilities from several packages:
+
+- [BiobakeryUtils](https://github.com/EcoJulia/BiobakeryUtils.jl)
+- [EcoBase](https://github.com/EcoJulia/EcoBase.jl)
+- [FdeSolver](https://github.com/JuliaTurkuDataScience/FdeSolver.jl)
+- [Microbiome](https://github.com/EcoJulia/Microbiome.jl):
+- [MultiAssayExperiments](https://github.com/LTLA/MultiAssayExperiments.jl)
+- [SummarizedExperiments](https://github.com/LTLA/SummarizedExperiments.jl)
+
+In addition, a few optional dependencies are recommended for MicrobiomeAnalysis.jl to function properly:
+
+- [DataFrames](https://github.com/JuliaData/DataFrames.jl)
+- [DataStructures](https://github.com/JuliaCollections/DataStructures.jl)
+- [MultivariateStats](https://github.com/JuliaStats/MultivariateStats.jl)
