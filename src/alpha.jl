@@ -7,7 +7,7 @@ Evaluates the shannon diversity index for each sample and returns it as a vector
 - `se::SummarizedExperiment`: the experiment object of interest.
 - `assay_name::String`: the name of the assay to base the evaluation on.
 """
-function MiaTools.shannon(se::SummarizedExperiment, assay_name::String)
+function MicrobiomeAnalysis.shannon(se::SummarizedExperiment, assay_name::String)
 
     # create empty vector with length = n° samples
     shannon_vector = zeros(size(assay(se, assay_name))[2])
@@ -57,7 +57,7 @@ Evaluates the ginisimpson diversity index for each sample and returns it as a ve
 - `se::SummarizedExperiment`: the experiment object of interest.
 - `assay_name::String`: the name of the assay to base the evaluation on.
 """
-function MiaTools.ginisimpson(se::SummarizedExperiment, assay_name::String)
+function MicrobiomeAnalysis.ginisimpson(se::SummarizedExperiment, assay_name::String)
 
     ginisimpson_vector = zeros(size(assay(se, assay_name))[2])
 

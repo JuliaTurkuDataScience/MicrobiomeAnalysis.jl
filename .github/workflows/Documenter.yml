@@ -1,4 +1,4 @@
-name: documenter
+name: Documenter
 on:
   - push
   - pull_request
@@ -28,8 +28,8 @@ jobs:
           julia --project=docs -e '
             import Pkg; Pkg.add("Documenter")
             using Documenter: doctest
-            using Mia
-            doctest(Mia)'
+            using MicrobiomeAnalysis
+            doctest(MicrobiomeAnalysis)'
 
       - name: Deploy documentation
         run: julia --project=docs docs/make.jl

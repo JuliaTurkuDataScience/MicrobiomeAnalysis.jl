@@ -1,36 +1,22 @@
-# MiaTools.jl
+# MicrobiomeAnalysis.jl
 
-[![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://juliaturkudatascience.github.io/MiaTools.jl/stable/readme/)
-[![CI](https://github.com/JuliaTurkuDataScience/MiaTools.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/JuliaTurkuDataScience/MiaTools.jl/actions/workflows/CI.yml)
-[![codecov](https://codecov.io/gh/JuliaTurkuDataScience/MiaTools.jl/branch/main/graph/badge.svg?token=VHEH1ZQLPA)](https://codecov.io/gh/JuliaTurkuDataScience/MiaTools.jl)
+[![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://juliaturkudatascience.github.io/MicrobiomeAnalysis.jl/stable/readme/)
+[![CI](https://github.com/JuliaTurkuDataScience/MicrobiomeAnalysis.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/JuliaTurkuDataScience/MicrobiomeAnalysis.jl/actions/workflows/CI.yml)
+[![codecov](https://codecov.io/gh/JuliaTurkuDataScience/MicrobiomeAnalysis.jl/branch/main/graph/badge.svg?token=VHEH1ZQLPA)](https://codecov.io/gh/JuliaTurkuDataScience/MicrobiomeAnalysis.jl)
 
 This package aims to integrate the R-based [SummarizedExperiment](https://github.com/LTLA/SummarizedExperiments.jl) objects with common methods for microbiome analysis, and intends to reflect the [mia project](https://github.com/microbiome/mia/) in the Julia ecosystem.
 
 Microbial community dynamics and time series are simulated through [FdeSolver.jl](https://github.com/JuliaTurkuDataScience/FdeSolver.jl), which is another program previously developed by our group.
 
-## Temporary installation
+## Installation
 
-To avail of its functionality, clone this repository on your local machine with:
-
-```bash
-git clone https://github.com/JuliaTurkuDataScience/MiaTools.jl.git
-cd MiaTools.jl
-```
-
-and run the following in Julia:
+This package is registered in the [General Registry](https://github.com/JuliaRegistries/General), so it can be installed as follows:
 
 ```julia
-]activate .
-[esc]using MiaTools
-```
-
-Now you should be able to access and use all exported functions, for instance:
-
-```julia
-shannon
-> shannon (generic function with 3 methods)
+Pkg.add("MicrobiomeAnalysis")
+using MicrobiomeAnalysis
 ```
 
 ## Documentation
 
-Available functions are described in the [Manual page](https://juliaturkudatascience.github.io/MiaTools.jl/stable/) and used for a basic microbiome workflow in the [Examples page](https://juliaturkudatascience.github.io/MiaTools.jl/stable/examples/).
+Available functions are described in the [Manual page](https://juliaturkudatascience.github.io/MicrobiomeAnalysis.jl/stable/) and used for a basic microbiome workflow in the [Examples page](https://juliaturkudatascience.github.io/MicrobiomeAnalysis.jl/stable/examples/).

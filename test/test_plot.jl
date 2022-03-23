@@ -1,8 +1,8 @@
-using MiaTools
+using MicrobiomeAnalysis
 using SummarizedExperiments
 using Test
 
-@testset "MiaTools.jl" begin
+@testset "MicrobiomeAnalysis.jl" begin
 
     se = exampleobject(40, 20)
 

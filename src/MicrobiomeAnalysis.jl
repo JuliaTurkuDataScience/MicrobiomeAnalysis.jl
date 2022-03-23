@@ -1,4 +1,4 @@
-module MiaTools
+module MicrobiomeAnalysis
 
 import SummarizedExperiments: SummarizedExperiment, assay, rowdata, coldata
 import Distances: pairwise, BrayCurtis, HellingerDist, Jaccard

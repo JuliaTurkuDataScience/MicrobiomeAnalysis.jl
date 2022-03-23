@@ -1,6 +1,6 @@
 ##### DEPENDENCIES #####
 
-using MiaTools
+using MicrobiomeAnalysis
 using SummarizedExperiments
 using DataFrames, DataStructures
 using Plots, MultivariateStats

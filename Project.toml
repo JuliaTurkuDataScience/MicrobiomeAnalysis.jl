@@ -1,4 +1,4 @@
-name = "MiaTools"
+name = "MicrobiomeAnalysis"
 uuid = "09137a06-29c6-4e66-9476-ab7e4b8c7492"
 authors = ["Giulio Benedetti <giuliobene2000@gmail.com> and contributors"]
 version = "0.1.0"

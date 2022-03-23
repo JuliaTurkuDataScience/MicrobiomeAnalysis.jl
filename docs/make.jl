@@ -1,9 +1,9 @@
 push!(LOAD_PATH,"../src/")
-using MiaTools, Documenter
+using MicrobiomeAnalysis, Documenter
 ENV["GKSwstype"] = "100"
 
 generated_path = joinpath(@__DIR__, "src")
-base_url = "https://github.com/JuliaTurkuDataScience/MiaTools.jl/blob/main/"
+base_url = "https://github.com/JuliaTurkuDataScience/MicrobiomeAnalysis.jl/blob/main/"
 isdir(generated_path) || mkdir(generated_path)
 
 open(joinpath(generated_path, "readme.md"), "w") do io
@@ -24,12 +24,12 @@ end
 
 makedocs(format = Documenter.HTML(),
          authors = "Giulio Benedetti, Leo Lahti",
-         sitename = "MiaTools.jl",
-         modules = [MiaTools],
+         sitename = "MicrobiomeAnalysis.jl",
+         modules = [MicrobiomeAnalysis],
          pages=[
              "Home" => "readme.md",
              "Manual" => "index.md",
              "Examples" => "examples.md"
                ])
 
-deploydocs(repo="github.com/JuliaTurkuDataScience/MiaTools.jl", push_preview=true)
+deploydocs(repo="github.com/JuliaTurkuDataScience/MicrobiomeAnalysis.jl", push_preview=true)
