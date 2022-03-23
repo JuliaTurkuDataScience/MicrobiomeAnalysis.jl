@@ -6,60 +6,62 @@ using Plots, MultivariateStats
 ##### SIMULATION #####
 
 # evaluate numerical solution
-t, Xapp = LVmodel(60)
+t1, Xapp1 = LVmodel(8, [0, 12], h = 3)
+t2, Xapp2 = LVmodel(12, [0, 10], h = 2)
 
 # convert transposed time series into Dictionary and store it into assays
-assays = OrderedDict{String, AbstractArray}("sim" => Xapp)
+assays1 = OrderedDict{String, AbstractArray}("foo" => Xapp1)
+assays2 = OrderedDict{String, AbstractArray}("bar" => Xapp2)
 
 # produce feature data including feature name (because it's required by the
 # SummarizedExperiment function) and information on genus and species
-rowdata = DataFrame(
-    name = ["strain$i" for i in 1:size(Xapp, 1)],
-    genus = ["g$i" for i in 1:size(Xapp, 1)],
-    species = ["s$i" for i in 1:size(Xapp, 1)]
+rowdata1 = DataFrame(
+    name = ["strain$i" for i in 1:size(Xapp1, 1)],
+    genus = ["g$i" for i in 1:size(Xapp1, 1)],
+    species = ["s$i" for i in 1:size(Xapp1, 1)]
+)
+
+rowdata2 = DataFrame(
+    name = ["metabolite$i" for i in 1:size(Xapp2, 1)],
+    expression = rand(["intracellular", "extracellular"], size(Xapp2, 1)),
+    enzyme = ["enzyme$i" for i in 1:size(Xapp2, 1)]
 )
 
 # produce sample data including sample name (because it's required by the
 # SummarizedExperiment function) and sampling site
-coldata = DataFrame(
-    name = ["t$i" for i in 1:size(Xapp, 2)],
-    condition = rand(["lake", "ocean", "river"], size(Xapp, 2)),
-    time = t
+coldata1 = DataFrame(
+    name = ["day$i" for i in 1:size(Xapp1, 2)],
+    origin = rand(["lake", "ocean", "river"], size(Xapp1, 2)),
+    time = t1
 )
 
-exp["microbiome"] = SummarizedExperiment(assays, rowdata, coldata)
-se = SummarizedExperiments.exampleobject(20, 501)
+coldata2 = DataFrame(
+    name = ["month$i" for i in 1:size(Xapp2, 2)],
+    wheather = rand(["sunny", "cloudy", "rainy"], size(Xapp2, 2)),
+    time = t2
+)
 
+expo = OrderedDict{String, SummarizedExperiment}()
+expo["microbiome"] = SummarizedExperiment(assays1, rowdata1, coldata1)
+expo["metabolome"] = SummarizedExperiment(assays2, rowdata2, coldata2)
 
-
-
-
-
-
-
-
-
-
-mae = MultiAssayExperiments.exampleobject()
-se = experiment(mae, "bar", sampledata = false)
-SummarizedExperiments.coldata(experiment(mae, "bar", sampledata = true))
-sub1 = multifilter(mae; samples = ["Patient1", "Patient3"])
-sub2 = multifilter(mae; experiments = "foo")
-
-
-exp = DataStructures.OrderedDict{String, SummarizedExperiment}()
-exp["foo"] = SummarizedExperiments.exampleobject(100, 2)
-exp["bar"] = SummarizedExperiments.exampleobject(50, 5)
 sample_data = DataFrame(
-     name = ["Aaron", "Michael", "Jayaram", "Sebastien", "John"],
-     disease = ["good", "bad", "good", "bad", "very bad"]
+     name = ["sample$i" for i in 1:10],
+     state = rand(["pure", "polluted", "contaminated", "remediated"], 10)
 )
+
 sample_map = DataFrame(
-    sample = ["Aaron", "Michael", "Aaron", "Michael", "Jayaram", "Sebastien", "John"],
-    experiment = ["foo", "foo", "bar", "bar", "bar", "bar", "bar"],
-    colname = ["Patient1", "Patient2", "Patient1", "Patient2", "Patient3", "Patient4", "Patient5"]
+    sample = ["sample$i" for i in 1:10],
+    experiment = rand(["microbiome", "metabolome"], 10),
+    colname = ["$i$j" for i in ["day", "month"] for j in 1:5]
 )
-out = MultiAssayExperiment(exp, sample_data, sample_map)
+
+mae = MultiAssayExperiment(expo, sample_data, sample_map)
+
+se = experiment(mae, "microbiome", sampledata = false)
+SummarizedExperiments.coldata(experiment(mae, "metabolome", sampledata = true))
+sub1 = multifilter(mae, samples = ["sample1", "sample4"])
+sub2 = multifilter(mae, experiments = "metabolome")
 
 experiments(mae)
 sampledata(mae)
