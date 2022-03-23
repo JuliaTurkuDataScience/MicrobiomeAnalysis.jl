@@ -1,13 +1,14 @@
 module MicrobiomeAnalysis
 
-import SummarizedExperiments: SummarizedExperiment, assay, rowdata, coldata
-import Distances: pairwise, BrayCurtis, HellingerDist, Jaccard
-import Microbiome: shannon, ginisimpson
-import MultivariateStats: fit, MDS
-import FdeSolver: FDEsolver
+using SummarizedExperiments: SummarizedExperiment, assay, rowdata, coldata
+using Distances: pairwise, BrayCurtis, HellingerDist, Jaccard
+using MultivariateStats: fit, MDS
+using FdeSolver: FDEsolver
+using DataStructures, Random, Plots
+
+import Microbiome: shannon, ginisimpson, shannon!, ginisimpson!, braycurtis, jaccard, hellinger, pcoa
 import Base: size
 import DataFrames: nrow, ncol, DataFrame
-using DataStructures, Random, Plots
 
 include("alpha.jl")
 export(shannon)
