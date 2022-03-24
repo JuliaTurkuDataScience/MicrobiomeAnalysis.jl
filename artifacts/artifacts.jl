@@ -1,3 +1,7 @@
+# cd dir to artifacts/, so csv files are detected
+# ;
+# cd artifacts/
+
 using MicrobiomeAnalysis, MultiAssayExperiments, SummarizedExperiments
 using CSV, DataFrames, DataStructures
 
