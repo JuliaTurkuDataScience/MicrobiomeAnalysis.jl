@@ -15,6 +15,7 @@ Real as well as simulated OTU tables or time series can be stored in a Summarize
 ```@example mia
 # evaluate numerical solution
 t, Xapp = LVmodel();
+nothing # hide
 ```
 
 ## Summarized Experiment
@@ -43,6 +44,7 @@ coldata = DataFrame(
 
 # create SummarizedExperiment object
 se = SummarizedExperiment(assays, rowdata, coldata);
+nothing # hide
 ```
 
 ## α diversity
@@ -58,6 +60,7 @@ ginisimpson_output = ginisimpson(se, "sim");
 shannon!(se, "sim");
 # estimate and store ginisimpson diversity index into se
 ginisimpson!(se, "sim");
+nothing # hide
 ```
 
 ## β diversity
