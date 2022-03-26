@@ -28,7 +28,7 @@ MicrobiomeAnalysis.jl enables the analysis of microbial but also more generic da
 - [BiobakeryUtils](https://github.com/EcoJulia/BiobakeryUtils.jl)
 - [EcoBase](https://github.com/EcoJulia/EcoBase.jl)
 - [FdeSolver](https://github.com/JuliaTurkuDataScience/FdeSolver.jl)
-- [Microbiome](https://github.com/EcoJulia/Microbiome.jl):
+- [Microbiome](https://github.com/EcoJulia/Microbiome.jl)
 - [MultiAssayExperiments](https://github.com/LTLA/MultiAssayExperiments.jl)
 - [SummarizedExperiments](https://github.com/LTLA/SummarizedExperiments.jl)
 
