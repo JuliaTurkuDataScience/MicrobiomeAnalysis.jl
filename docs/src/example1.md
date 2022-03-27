@@ -1,8 +1,8 @@
-# Tutorial
+# Tutoriala 1: construct and analyse a summarized experiment from a simulated time series
 
 This example walks you through the microdiversity analysis of a time series that simulates a Lotka-Volterra community with 20 strains and 500 time points.
 
-```@setup mia
+```@setup se
 using MicrobiomeAnalysis, SummarizedExperiments
 using DataFrames, DataStructures
 using Plots, MultivariateStats
@@ -12,7 +12,7 @@ using Plots, MultivariateStats
 
 Real as well as simulated OTU tables or time series can be stored in a SummarizedExperiment object. In this example, a time series is generated with the function `LVmodel`, which runs a Lotka-Volterra model by means of [FdeSolver.jl](https://github.com/JuliaTurkuDataScience/FdeSolver.jl). To achieve more control over the simulation, it is possible to produce custom models by directly using the `FDEsolver` function from the aforementioned package (see a few [examples](https://juliaturkudatascience.github.io/FdeSolver.jl/stable/examples/)).
 
-```@repl mia
+```@repl se
 # evaluate numerical solution
 t, Xapp = LVmodel();
 ```
@@ -21,7 +21,7 @@ t, Xapp = LVmodel();
 
 Next, the assay produced through `LVmodel` is combined with the meta data on samples or time steps (`coldata`) and that on features or species (`rowdata`) into a SummarizedExperiment object.
 
-```@repl mia
+```@repl se
 # convert transposed time series into Dictionary and store it into assays
 assays = OrderedDict{String, AbstractArray}("sim" => Xapp);
 
@@ -49,7 +49,7 @@ se = SummarizedExperiment(assays, rowdata, coldata);
 
 Alpha diversity is then estimated with two different metrics (shannon and ginisimpson indices).
 
-```@repl mia
+```@repl se
 # estimate shannon diversity index
 shannon_output = shannon(se, "sim");
 # estimate ginisimpson diversity index
@@ -64,7 +64,7 @@ ginisimpson!(se, "sim");
 
 Finally, a few dissimilarity metrics for beta diversity are evaluated and the Jaccard index is used to run a Principal Coordinate Analysis across 4 dimensions, which is then visualised on a scatter plot.
 
-```@repl mia
+```@repl se
 # evaluate braycurtis dissimilarity index
 braycurtis_output = braycurtis(se, "sim");
 # evaluate jaccard dissimilarity index
@@ -95,7 +95,7 @@ savefig("plot1.png"); nothing # hide
 
 Below is a possible method to plot the abundance of each strain throughout the time series.
 
-```@repl mia
+```@repl se
 p2 = abundance_plot(se, "sim")
 savefig("plot2.png"); nothing # hide
 ```

@@ -1,7 +1,8 @@
 # API
 
 ## Package features
-- functions and workflows for the analysis of microbiome data.
+- functions and workflows for the analysis of microbiome data
+- ready-to-use sample datasets
 
 ## Utility documentation
 
@@ -33,4 +34,10 @@ LVmodel
 
 ```@docs
 abundance_plot
+```
+
+### Datasets
+
+```@docs
+HintikkaXOData
 ```

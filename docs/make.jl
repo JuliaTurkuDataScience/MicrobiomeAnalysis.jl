@@ -29,7 +29,11 @@ makedocs(format = Documenter.HTML(),
          pages=[
              "Home" => "readme.md",
              "Manual" => "index.md",
-             "Examples" => "examples.md"
+             "Tutorial" => Any[
+                "SE construction and analysis" => "example1.md",
+                "MAE construction and manipulation" => "example2.md",
+                "MAE analysis" => "example3.md"
+             ]
                ])
 
 deploydocs(repo="github.com/JuliaTurkuDataScience/MicrobiomeAnalysis.jl", push_preview=true)
