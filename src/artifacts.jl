@@ -1,3 +1,10 @@
+"""
+    HintikkaXOData()
+
+Retrieves the HintikkaXO MultiAssayExperiment, consisting of the microbiota,
+metabolite and biomarker SummarizedExperiment objects from Hintikka et al.
+(2021), https://doi.org/10.3390/ijerph18084049.
+"""
 function HintikkaXOData()
 
     ##### MICROBIOTA EXPERIMENT #####

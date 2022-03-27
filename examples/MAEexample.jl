@@ -10,6 +10,8 @@ t1, Xapp1 = LVmodel(8, [0, 12], h = 3)
 # evaluate numerical solution for experiment 2
 t2, Xapp2 = LVmodel(12, [0, 10], h = 2)
 
+##### SUMMARIZED EXPERIMENTS #####
+
 # convert transposed time series into Dictionary and store it into assays
 assays1 = OrderedDict{String, AbstractArray}("foo" => Xapp1)
 assays2 = OrderedDict{String, AbstractArray}("bar" => Xapp2)
@@ -44,6 +46,8 @@ coldata2 = DataFrame(
     time = t2
 )
 
+##### MULTIASSAY EXPERIMENT ######
+
 # create a dictionary of multiple experiments
 expo = OrderedDict{String, SummarizedExperiment}()
 expo["microbiome"] = SummarizedExperiment(assays1, rowdata1, coldata1)
@@ -64,6 +68,8 @@ sample_map = DataFrame(
 
 # assemble ingredients into a MultiAssayExperiment object
 mae = MultiAssayExperiment(expo, sample_data, sample_map)
+
+##### MANIPULATION #####
 
 # extract microbiome experiment from mae, without sample data
 se1 = experiment(mae, "microbiome", sampledata = false)
