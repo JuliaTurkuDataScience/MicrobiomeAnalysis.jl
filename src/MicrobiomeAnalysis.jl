@@ -7,10 +7,11 @@ using MultivariateStats: fit, MDS
 using FdeSolver: FDEsolver
 using DataStructures, Random, Plots
 using CSV
+using Statistics: mean, std
 
 import Microbiome: shannon, ginisimpson, shannon!, ginisimpson!, braycurtis, jaccard, hellinger, pcoa
 import Base: size
-import DataFrames: nrow, ncol, rename!, select!, DataFrame
+import DataFrames: nrow, ncol, rename!, select!, transform, transform!, DataFrame
 
 include("alpha.jl")
 export(shannon)
@@ -31,7 +32,13 @@ export(size)
 export(nrow)
 export(ncol)
 
+<<<<<<< HEAD
 include("artifacts.jl")
 export(HintikkaXOData)
+=======
+include("transform.jl")
+export(transform)
+export(transform!)
+>>>>>>> origin/main
 
 end
