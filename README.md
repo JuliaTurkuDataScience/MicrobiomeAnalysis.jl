@@ -17,6 +17,26 @@ Pkg.add("MicrobiomeAnalysis")
 using MicrobiomeAnalysis
 ```
 
+To avail of its latest functionality, clone this repo locally and start Julia with:
+
+```bash
+git clone git@github.com:microbiome/mia.git
+cd Mia.jl
+julia --project=.
+```
+and then run this in the Julia REPL:
+
+```julia
+using MicrobiomeAnalysis
+```
+
+Now you should be able to access and use all exported functions, for instance:
+
+```julia
+shannon
+> shannon (generic function with 3 methods)
+```
+
 ## Documentation
 
 Available functions are described in the [Manual page](https://juliaturkudatascience.github.io/MicrobiomeAnalysis.jl/stable/) and used for a basic microbiome workflow in the [Examples page](https://juliaturkudatascience.github.io/MicrobiomeAnalysis.jl/stable/examples/).
