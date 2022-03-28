@@ -30,6 +30,13 @@ pcoa
 LVmodel
 ```
 
+### Assay Transformation
+
+```@docs
+transform
+transform!
+```
+
 ### Visualisation
 
 ```@docs
