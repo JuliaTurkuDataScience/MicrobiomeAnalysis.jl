@@ -32,13 +32,11 @@ export(size)
 export(nrow)
 export(ncol)
 
-<<<<<<< HEAD
 include("artifacts.jl")
 export(HintikkaXOData)
-=======
+
 include("transform.jl")
 export(transform)
 export(transform!)
->>>>>>> origin/main
 
 end
