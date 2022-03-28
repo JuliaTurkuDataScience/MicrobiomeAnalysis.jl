@@ -1,5 +1,7 @@
 # Tutorial 2: construct and manipulate a multiassay experiment from some simulated time series
 
+MultiAssayExperiment objects aim to encapsulate and a variety of aspects on the same experimental subject in order to allow cross-investigation at multiple levels. For instance, information on the microbiome, metabolome and biomarkers could be summarised through three separate SummarizedExperiment objects, which are then incorporated in one overall MultiAssayExperiment object.
+
 ```@setup mae1
 using MicrobiomeAnalysis
 using MultiAssayExperiments, SummarizedExperiments
@@ -7,6 +9,8 @@ using DataFrames, DataStructures
 ```
 
 ## Simulation
+
+Two time series are generated that simulate an 8-by-5 and a 12-by-6 assays and are meant to represent the microbiome and metabolome data, respectively.
 
 ```@example mae1
 # evaluate numerical solution for experiment 1
@@ -17,6 +21,8 @@ nothing # hide
 ```
 
 ## Summarized experiments
+
+Made-up information on microbiome taxonomy and sampling site as well as metabolome functionality and sampling wheather are introduced in the corresponding dataframe on features (rowdata) and samples (coldata).
 
 ```@example mae1
 # convert transposed time series into Dictionary and store it into assays
@@ -57,6 +63,8 @@ nothing # hide
 
 ## Multiassay experiment
 
+The two assays are then assembled with their respective meta data. In addition, the sample data and the sample map are created and used to make the final MultiAssayExperiment object. The former element provides absolute results or some other kind of overall knowledge concerning all samples from all experiments, whereas the latter systematically maps the sample data to every column of the various experiments.
+
 ```@example mae1
 # create a dictionary of multiple experiments
 expo = OrderedDict{String, SummarizedExperiment}();
@@ -81,6 +89,8 @@ mae = MultiAssayExperiment(expo, sample_data, sample_map)
 ```
 
 ## Object manipulation
+
+The resulting mae can be finely retrieved for specific experiments, subsetted by features, samples and assays as well as melted into its building components.
 
 ```@example mae1
 # extract microbiome experiment from mae, without sample data

@@ -10,7 +10,7 @@ using CSV
 using Statistics: mean, std
 
 import Microbiome: shannon, ginisimpson, shannon!, ginisimpson!, braycurtis, jaccard, hellinger, pcoa
-import Base: size
+import Base: size, log10
 import DataFrames: nrow, ncol, rename!, select!, transform, transform!, DataFrame
 
 include("alpha.jl")
@@ -38,5 +38,10 @@ export(HintikkaXOData)
 include("transform.jl")
 export(transform)
 export(transform!)
+export(log10)
+export(pa)
+export(relabund)
+export(ztranform)
+export(clr)
 
 end
