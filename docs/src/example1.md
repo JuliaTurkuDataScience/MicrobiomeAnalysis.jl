@@ -1,4 +1,4 @@
-# Tutoriala 1: construct and analyse a summarized experiment from a simulated time series
+# Tutorial 1: construct and analyse a summarized experiment from a simulated time series
 
 This example walks you through the microdiversity analysis of a time series that simulates a Lotka-Volterra community with 20 strains and 500 time points.
 

@@ -2,7 +2,7 @@
     HintikkaXOData()
 
 Retrieves the HintikkaXO MultiAssayExperiment, consisting of the microbiota,
-metabolite and biomarker SummarizedExperiment objects from Hintikka et al.
+metabolite and biomarker SummarizedExperiment data, by Hintikka et al.
 (2021), https://doi.org/10.3390/ijerph18084049.
 """
 function HintikkaXOData()
@@ -86,5 +86,31 @@ function HintikkaXOData()
     HintikkaXOData = MultiAssayExperiment(expo, sample_data, sample_map)
 
     return HintikkaXOData
+
+end
+
+
+"""
+    OKeefeDSData()
+
+Retrieves the OKeefeDS SummarizedExperiment, consisting of the microbiota,
+contains microbiome data from a study with African and African American groups
+undergoing a two-week diet swap, by O'Keefe et al.
+(2015), https://dx.doi.org/10.1038/ncomms7342.
+"""
+function OKeefeDSData()
+
+    DS_counts = CSV.File(joinpath(@__DIR__, "assets/DS_counts.csv")) |> DataFrame
+    DS_assays = OrderedDict{String, AbstractArray}("counts" => DS_counts[:, 2:end] |> Matrix)
+
+    DS_rowdata = CSV.File(joinpath(@__DIR__, "assets/DS_rowdata.csv")) |> DataFrame
+    DS_rowdata[!, :name] = ["strain$i" for i in 1:size(DS_rowdata, 1)]
+    select!(DS_rowdata, vcat("name", names(DS_rowdata)[1:end - 1]))
+
+    DS_coldata = CSV.File(joinpath(@__DIR__, "assets/DS_coldata.csv")) |> DataFrame
+    DS_coldata[!, :name] = DS_coldata[!, :sample]
+    select!(DS_coldata, vcat("name", names(DS_coldata)[1: end - 1]))
+
+    OKeefeDSData = SummarizedExperiment(DS_assays, DS_rowdata, DS_coldata)
 
 end
