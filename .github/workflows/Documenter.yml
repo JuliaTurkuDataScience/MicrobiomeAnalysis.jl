@@ -1,7 +1,11 @@
 name: Documenter
+
 on:
-  - push
-  - pull_request
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
 jobs:
   docs:
     name: Documentation

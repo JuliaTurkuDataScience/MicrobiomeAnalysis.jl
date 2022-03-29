@@ -41,7 +41,7 @@ shannon
 ## Documentation
 
 - [Function reference manual](https://juliaturkudatascience.github.io/MicrobiomeAnalysis.jl/stable/)
-- [Basic microbiome workflow examples](https://juliaturkudatascience.github.io/MicrobiomeAnalysis.jl/stable/example1/).
+- [Basic microbiome workflow examples](https://juliaturkudatascience.github.io/MicrobiomeAnalysis.jl/stable/example1/)
 
 
 ## Data containers

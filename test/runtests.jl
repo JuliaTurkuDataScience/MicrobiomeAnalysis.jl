@@ -7,3 +7,7 @@ using SafeTestsets
 @safetestset "Generating LV model" begin include("test_lv.jl") end
 
 @safetestset "Plotting time series" begin include("test_plot.jl") end
+
+@safetestset "Transforming assays" begin include("test_transform.jl") end
+
+@safetestset "Retrieving artifacts" begin include("test_artifacts.jl") end
