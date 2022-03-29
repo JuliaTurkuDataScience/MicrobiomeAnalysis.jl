@@ -37,7 +37,14 @@ function transform!(se::SummarizedExperiment, assay_name::String, method::Functi
 
 end
 
-log10(assay::Matrix{<:Real}) = log10.(assay)
+function log10(assay::Matrix{<:Real}, pseudocount::Real = 0)
+
+    assay .+= pseudocount
+
+    return log10.(assay)
+
+end
+
 pa(assay::Matrix{<:Real}, threshold::Real) = map(x -> ifelse(x > threshold, 1, 0), assay)
 
 function relabund(assay::Matrix{<:Real})
@@ -72,7 +79,9 @@ function ztransform(assay::Matrix{<:Real})
 
 end
 
-function clr(assay::Matrix{<:Real})
+function clr(assay::Matrix{<:Real}, pseudocount::Real = 0)
+
+    assay .+= pseudocount
 
     clog = log.(assay)
     mat = zeros(size(assay))

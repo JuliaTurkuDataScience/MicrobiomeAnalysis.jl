@@ -42,7 +42,7 @@ export(transform!)
 export(log10)
 export(pa)
 export(relabund)
-export(ztranform)
+export(ztransform)
 export(clr)
 
 end
