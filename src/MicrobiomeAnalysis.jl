@@ -34,6 +34,7 @@ export(ncol)
 
 include("artifacts.jl")
 export(HintikkaXOData)
+export(OKeefeDSData)
 
 include("transform.jl")
 export(transform)

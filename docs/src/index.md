@@ -2,7 +2,7 @@
 
 ## Package features
 - functions and workflows for the analysis of microbiome data
-- ready-to-use sample datasets
+- ready-to-use example datasets
 
 ## Utility documentation
 
@@ -47,4 +47,5 @@ abundance_plot
 
 ```@docs
 HintikkaXOData
+OKeefeDSData
 ```
