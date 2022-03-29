@@ -21,8 +21,8 @@ using MicrobiomeAnalysis
 For the latest functionality, you can clone this repo locally and start Julia with:
 
 ```bash
-git clone git@github.com:microbiome/mia.git
-cd Mia.jl
+git clone git@github.com:JuliaTurkuDataScience/MicrobiomeAnalysis.jl.git
+cd McrobiomeAnalysis.jl
 julia --project=.
 ```
 and then run this in the Julia REPL:
