@@ -3,6 +3,7 @@
 It is also possible to get started with a ready-made experiment and try to perform analysis on it. The following studies come pre-installed together with this package:
 
 - [HintikkaXOData](https://www.mdpi.com/1660-4601/18/8/4049)
+- [OKeefeDSData](https://dx.doi.org/10.1038/ncomms7342)
 
 ```@setup mae2
 using MicrobiomeAnalysis

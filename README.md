@@ -41,8 +41,7 @@ shannon
 ## Documentation
 
 - [Function reference manual](https://juliaturkudatascience.github.io/MicrobiomeAnalysis.jl/stable/)
-
-- [Basic microbiome workflow examples](https://juliaturkudatascience.github.io/MicrobiomeAnalysis.jl/stable/examples/).
+- [Basic microbiome workflow examples](https://juliaturkudatascience.github.io/MicrobiomeAnalysis.jl/stable/example1/).
 
 
 ## Data containers
@@ -77,4 +76,3 @@ MicrobiomeAnalysis.jl to function properly:
 - [DataFrames](https://github.com/JuliaData/DataFrames.jl)
 - [DataStructures](https://github.com/JuliaCollections/DataStructures.jl)
 - [MultivariateStats](https://github.com/JuliaStats/MultivariateStats.jl)
-
