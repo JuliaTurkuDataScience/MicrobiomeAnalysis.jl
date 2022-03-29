@@ -4,20 +4,21 @@
 [![CI](https://github.com/JuliaTurkuDataScience/MicrobiomeAnalysis.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/JuliaTurkuDataScience/MicrobiomeAnalysis.jl/actions/workflows/CI.yml)
 [![codecov](https://codecov.io/gh/JuliaTurkuDataScience/MicrobiomeAnalysis.jl/branch/main/graph/badge.svg?token=VHEH1ZQLPA)](https://codecov.io/gh/JuliaTurkuDataScience/MicrobiomeAnalysis.jl)
 
-This package aims to integrate the R-based [SummarizedExperiment](https://github.com/LTLA/SummarizedExperiments.jl) objects with common methods for microbiome analysis, and intends to reflect the [mia project](https://github.com/microbiome/mia/) in the Julia ecosystem.
+This package provides common methods for microbiome analysis based on the [SummarizedExperiment](https://github.com/LTLA/SummarizedExperiments.jl) and [MultiAssayExperiment](https://github.com/LTLA/MultiAssayExperiment.jl) data containers. This work in Julia language reflects [related developments in R](https://github.com/microbiome/mia/).
 
-Microbial community dynamics and time series are simulated through [FdeSolver.jl](https://github.com/JuliaTurkuDataScience/FdeSolver.jl), which is another program previously developed by our group.
+
+
 
 ## Installation
 
-This package is registered in the [General Registry](https://github.com/JuliaRegistries/General), so it can be installed as follows:
+This package has been registered in the Julia [General Registry](https://github.com/JuliaRegistries/General), so it can be installed as follows:
 
 ```julia
 Pkg.add("MicrobiomeAnalysis")
 using MicrobiomeAnalysis
 ```
 
-To avail of its latest functionality, clone this repo locally and start Julia with:
+For the latest functionality, you can clone this repo locally and start Julia with:
 
 ```bash
 git clone git@github.com:microbiome/mia.git
@@ -39,21 +40,41 @@ shannon
 
 ## Documentation
 
-Available functions are described in the [Manual page](https://juliaturkudatascience.github.io/MicrobiomeAnalysis.jl/stable/) and used for a basic microbiome workflow in the [Examples page](https://juliaturkudatascience.github.io/MicrobiomeAnalysis.jl/stable/examples/).
+- [Function reference manual](https://juliaturkudatascience.github.io/MicrobiomeAnalysis.jl/stable/)
 
-## References
+- [Basic microbiome workflow examples](https://juliaturkudatascience.github.io/MicrobiomeAnalysis.jl/stable/examples/).
 
-MicrobiomeAnalysis.jl enables the analysis of microbial but also more generic data contained by SummarizedExperiment objects, therefore its usage is closely related and applicable to the utilities from several packages:
 
-- [BiobakeryUtils](https://github.com/EcoJulia/BiobakeryUtils.jl)
-- [EcoBase](https://github.com/EcoJulia/EcoBase.jl)
-- [FdeSolver](https://github.com/JuliaTurkuDataScience/FdeSolver.jl)
-- [Microbiome](https://github.com/EcoJulia/Microbiome.jl)
+## Data containers
+
+MicrobiomeAnalysis.jl supports the analysis based on specific data containers:
+
 - [MultiAssayExperiments](https://github.com/LTLA/MultiAssayExperiments.jl)
 - [SummarizedExperiments](https://github.com/LTLA/SummarizedExperiments.jl)
 
-In addition, a few optional dependencies are recommended for MicrobiomeAnalysis.jl to function properly:
+
+## Microbiome data analysis packages
+
+Simulate microbial community dynamics and time series:
+
+- [FdeSolver](https://github.com/JuliaTurkuDataScience/FdeSolver.jl)
+
+
+Independently developed packages for microbiome analysis provide
+additional utilities but require in some cases further integration
+with the SE and MAE data containers.
+
+- [BiobakeryUtils](https://github.com/EcoJulia/BiobakeryUtils.jl)
+- [EcoBase](https://github.com/EcoJulia/EcoBase.jl)
+- [Microbiome](https://github.com/EcoJulia/Microbiome.jl)
+
+
+## Suggested dependencies
+
+A few optional dependencies are recommended for
+MicrobiomeAnalysis.jl to function properly:
 
 - [DataFrames](https://github.com/JuliaData/DataFrames.jl)
 - [DataStructures](https://github.com/JuliaCollections/DataStructures.jl)
 - [MultivariateStats](https://github.com/JuliaStats/MultivariateStats.jl)
+
