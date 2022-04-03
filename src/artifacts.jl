@@ -100,17 +100,43 @@ undergoing a two-week diet swap, by O'Keefe et al.
 """
 function OKeefeDSData()
 
-    DS_counts = CSV.File(joinpath(@__DIR__, "assets/DS_counts.csv")) |> DataFrame
-    DS_assays = OrderedDict{String, AbstractArray}("counts" => DS_counts[:, 2:end] |> Matrix)
+    # DS_counts = CSV.File(joinpath(@__DIR__, "assets/DS_counts.csv")) |> DataFrame
+    # DS_assays = OrderedDict{String, AbstractArray}("counts" => DS_counts[:, 2:end] |> Matrix)
 
-    DS_rowdata = CSV.File(joinpath(@__DIR__, "assets/DS_rowdata.csv")) |> DataFrame
-    DS_rowdata[!, :name] = ["strain$i" for i in 1:size(DS_rowdata, 1)]
-    select!(DS_rowdata, vcat("name", names(DS_rowdata)[1:end - 1]))
+    # DS_rowdata = CSV.File(joinpath(@__DIR__, "assets/DS_rowdata.csv")) |> DataFrame
+    # DS_rowdata[!, :name] = ["strain$i" for i in 1:size(DS_rowdata, 1)]
+    # select!(DS_rowdata, vcat("name", names(DS_rowdata)[1:end - 1]))
 
-    DS_coldata = CSV.File(joinpath(@__DIR__, "assets/DS_coldata.csv")) |> DataFrame
-    DS_coldata[!, :name] = DS_coldata[!, :sample]
-    select!(DS_coldata, vcat("name", names(DS_coldata)[1: end - 1]))
+    # DS_coldata = CSV.File(joinpath(@__DIR__, "assets/DS_coldata.csv")) |> DataFrame
+    # DS_coldata[!, :name] = DS_coldata[!, :sample]
+    # select!(DS_coldata, vcat("name", names(DS_coldata)[1: end - 1]))
 
-    OKeefeDSData = SummarizedExperiment(DS_assays, DS_rowdata, DS_coldata)
+    # SummarizedExperiment(DS_assays, DS_rowdata, DS_coldata)
+
+    import_from_csv(joinpath(@__DIR__, "assets/DS_assays.csv"),
+                    joinpath(@__DIR__, "assets/DS_rowdata.csv"),
+                    joinpath(@__DIR__, "assets/DS_coldata.csv"))
+
+end
+
+function import_from_csv(assays_file::AbstractString, rowdata_file::AbstractString, coldata_file::AbstractString)
+
+    raw_assays = CSV.File(assays_file) |> DataFrame
+    assays = OrderedDict{String, AbstractArray}()
+    
+    for cur_group in unique(raw_assays[!, :group_name])
+        
+        assays[cur_group] = filter(:group_name => x -> x == cur_group, raw_assays)[:, 4:end] |> Matrix
+    
+    end
+
+    row_data = CSV.File(rowdata_file) |> DataFrame
+    rename!(row_data, Dict(:Column1 => "name"))
+    row_data[!, :name] = map(string, row_data[!, :name])
+
+    col_data = CSV.File(coldata_file) |> DataFrame
+    rename!(col_data, Dict(:Column1 => "name"))
+
+    SummarizedExperiment(assays, row_data, col_data)
 
 end
