@@ -14,6 +14,7 @@ This package provides common methods for microbiome analysis based on the [Summa
 This package has been registered in the Julia [General Registry](https://github.com/JuliaRegistries/General), so it can be installed as follows:
 
 ```julia
+using Pkg
 Pkg.add("MicrobiomeAnalysis")
 using MicrobiomeAnalysis
 ```
