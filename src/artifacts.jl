@@ -122,7 +122,7 @@ function OKeefeDSData()
 
     # SummarizedExperiment(DS_assays, DS_rowdata, DS_coldata)
 
-    import_from_csv(joinpath(@__DIR__, "assets/DS_assays.csv"),
+    import_se_from_csv(joinpath(@__DIR__, "assets/DS_assays.csv"),
                     joinpath(@__DIR__, "assets/DS_rowdata.csv"),
                     joinpath(@__DIR__, "assets/DS_coldata.csv"))
 

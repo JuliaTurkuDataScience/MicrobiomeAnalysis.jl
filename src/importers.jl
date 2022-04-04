@@ -1,13 +1,9 @@
 function import_se_from_csv(assays_file::AbstractString, rowdata_file::AbstractString, coldata_file::AbstractString)
 
     raw_assays = CSV.File(assays_file) |> DataFrame
-    assays = OrderedDict{String, AbstractArray}()
-    
-    for cur_group in unique(raw_assays[!, :group_name])
-        
-        assays[cur_group] = filter(:group_name => x -> x == cur_group, raw_assays)[:, 4:end] |> Matrix
-    
-    end
+
+    groups = unique(raw_assays[!, :group_name])
+    assays = construct_assays(raw_assays, groups)
 
     row_data = CSV.File(rowdata_file) |> DataFrame
     rename!(row_data, Dict(:Column1 => "name"))
@@ -25,13 +21,7 @@ function import_se_from_csv(assays_file::AbstractString)
     raw_assays = CSV.File(assays_file) |> DataFrame
 
     groups = unique(raw_assays[!, :group_name])
-    assays = OrderedDict{String, AbstractArray}()
-    
-    for cur_group in groups
-        
-        assays[cur_group] = filter(:group_name => x -> x == cur_group, raw_assays)[:, 4:end] |> Matrix
-    
-    end
+    assays = construct_assays(raw_assays, groups)
 
     row_data = DataFrame(
         name = raw_assays[1:Int64(size(raw_assays, 1) / length(groups)), 1]
@@ -77,3 +67,17 @@ end
 #     joinpath(@__DIR__, "assets/sample_data.csv"),
 #     joinpath(@__DIR__, "assets/sample_map.csv"),
 #     experiment_names = experiment_names)
+
+function construct_assays(raw_assays, groups)
+
+    assays = OrderedDict{String, AbstractArray}()
+
+    for cur_group in groups
+        
+        assays[cur_group] = filter(:group_name => x -> x == cur_group, raw_assays)[:, 4:end] |> Matrix
+    
+    end
+
+    assays
+
+end
