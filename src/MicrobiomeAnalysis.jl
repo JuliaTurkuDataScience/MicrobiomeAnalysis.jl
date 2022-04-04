@@ -32,6 +32,10 @@ export(size)
 export(nrow)
 export(ncol)
 
+include("importers.jl")
+export(import_se_from_csv)
+export(import_mae_from_csv)
+
 include("artifacts.jl")
 export(HintikkaXOData)
 export(OKeefeDSData)

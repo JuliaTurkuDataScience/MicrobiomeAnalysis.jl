@@ -43,9 +43,11 @@ transform!
 abundance_plot
 ```
 
-### Datasets
+### Importing Datasets
 
 ```@docs
 HintikkaXOData
 OKeefeDSData
+import_se_from_csv
+import_mae_from_csv
 ```
