@@ -17,6 +17,8 @@ and re-assembled into a SummarizedExperiment.
 In R, you can adjust the code below to retrieve the se and split it into three csv files, which contain the assays, the rowdata and the coldata, respectively.
 
 ```r
+# R
+
 # load OKeefeDSData container
 library(microbiomeDataSets)
 se <- OKeefeDSData()
@@ -27,7 +29,7 @@ coldata <- colData(se)
 rowdata <- rowData(se)
 
 # write out csv files with assays, rowdata and coldata, respectively
-write.csv(counts, "DS_assays.csv")
+write.csv(assays, "DS_assays.csv")
 write.csv(rowdata, "DS_rowdata.csv")
 write.csv(coldata,"DS_coldata.csv")
 ```
@@ -35,10 +37,12 @@ write.csv(coldata,"DS_coldata.csv")
 In Julia, it is necessary to pass the paths to the three files to the `import_se_from_csv` function, keeping in mind the correct order.
 
 ```julia
+# Julia
+
 # assemble se from csv files
-import_se_from_csv("assets/DS_assays.csv",
-                   "assets/DS_rowdata.csv",
-                   "assets/DS_coldata.csv")
+import_se_from_csv("DS_assays.csv",
+                   "DS_rowdata.csv",
+                   "DS_coldata.csv")
 ```
 
 ## Importing MAE
@@ -49,6 +53,8 @@ This time, the container needs to be divided into one assay file for each experi
 the sample data and the sample map also go to make one csv file each.
 
 ```r
+# R
+
 # load HintikkaXOData container
 library(microbiomeDataSets)
 mae <- HintikkaXOData()
@@ -77,6 +83,8 @@ write.csv(sampleMap(mae),"XO_sample_map.csv",
 As in the previous case, the csv files are re-assembled into a mae in Julia. The paths to the assay files should be provided to `import_mae_from_csv` as a list in the first argument, followed by sample data and sample map file paths. Also, the optional argument `experiment_names` lets you choose custom names for the experiments.
 
 ```julia
+# Julia
+
 # make a list with the paths to the assays files
 experiment_files = ["XO_microbiota_assays.csv",
                     "assets/XO_metabolites_assays.csv",
