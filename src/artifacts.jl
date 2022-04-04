@@ -7,85 +7,94 @@ metabolite and biomarker SummarizedExperiment data, by Hintikka et al.
 """
 function HintikkaXOData()
 
-    ##### MICROBIOTA EXPERIMENT #####
+    # ##### MICROBIOTA EXPERIMENT #####
 
-    # read in csv file on microbiota as DataFrame
-    counts = CSV.File(joinpath(@__DIR__, "assets/counts.csv")) |> DataFrame
-    # store rowdata
-    rowdata_microbiota = DataFrame(
-        name = counts[:, 1]
-    )
-    # store coldata
-    coldata_microbiota = DataFrame(
-        name = names(counts)[2:end]
-    )
-    # create counts assay
-    assay_microbiota = OrderedDict{String, AbstractArray}("counts" => counts[:, 2:end] |> Matrix)
+    # # read in csv file on microbiota as DataFrame
+    # counts = CSV.File(joinpath(@__DIR__, "assets/counts.csv")) |> DataFrame
+    # # store rowdata
+    # rowdata_microbiota = DataFrame(
+    #     name = counts[:, 1]
+    # )
+    # # store coldata
+    # coldata_microbiota = DataFrame(
+    #     name = names(counts)[2:end]
+    # )
+    # # create counts assay
+    # assay_microbiota = OrderedDict{String, AbstractArray}("counts" => counts[:, 2:end] |> Matrix)
 
-    ##### METABOLITES EXPERIMENT #####
+    # ##### METABOLITES EXPERIMENT #####
 
-    # read in csv file on metabolites as DataFrame
-    nmr = CSV.File(joinpath(@__DIR__, "assets/nmr.csv")) |> DataFrame
-    # store rowdata
-    rowdata_metabolites = DataFrame(
-        name = nmr[:, 1]
-    )
-    # store coldata
-    coldata_metabolites = DataFrame(
-        name = names(nmr)[2:end]
-    )
-    # create nmr assay
-    assay_metabolites = OrderedDict{String, AbstractArray}("nmr" => nmr[:, 2:end] |> Matrix)
+    # # read in csv file on metabolites as DataFrame
+    # nmr = CSV.File(joinpath(@__DIR__, "assets/nmr.csv")) |> DataFrame
+    # # store rowdata
+    # rowdata_metabolites = DataFrame(
+    #     name = nmr[:, 1]
+    # )
+    # # store coldata
+    # coldata_metabolites = DataFrame(
+    #     name = names(nmr)[2:end]
+    # )
+    # # create nmr assay
+    # assay_metabolites = OrderedDict{String, AbstractArray}("nmr" => nmr[:, 2:end] |> Matrix)
 
-    ##### BIOMARKERS EXPERIMENT #####
+    # ##### BIOMARKERS EXPERIMENT #####
 
-    # read in csv file on biomarkers as DataFrame
-    signals = CSV.File(joinpath(@__DIR__, "assets/signals.csv")) |> DataFrame
-    # store rowdata
-    rowdata_biomarkers = DataFrame(
-        name = signals[:, 1]
-    )
-    # store coldata
-    coldata_biomarkers = DataFrame(
-        name = names(signals)[2:end]
-    )
-    # create signals assay
-    assay_biomarkers = OrderedDict{String, AbstractArray}("signals" => signals[:, 2:end] |> Matrix)
+    # # read in csv file on biomarkers as DataFrame
+    # signals = CSV.File(joinpath(@__DIR__, "assets/signals.csv")) |> DataFrame
+    # # store rowdata
+    # rowdata_biomarkers = DataFrame(
+    #     name = signals[:, 1]
+    # )
+    # # store coldata
+    # coldata_biomarkers = DataFrame(
+    #     name = names(signals)[2:end]
+    # )
+    # # create signals assay
+    # assay_biomarkers = OrderedDict{String, AbstractArray}("signals" => signals[:, 2:end] |> Matrix)
 
-    ##### EXPERIMENTLIST #####
+    # ##### EXPERIMENTLIST #####
 
-    # create OrderedDict object to store SummarizedExperiment objects
-    expo = OrderedDict{String, SummarizedExperiment}()
-    # store first experiment as microbiota
-    expo["microbiota"] = SummarizedExperiment(assay_microbiota, rowdata_microbiota, coldata_microbiota)
-    # store second experiment as metabolites
-    expo["metabolites"] = SummarizedExperiment(assay_metabolites, rowdata_metabolites, coldata_metabolites)
-    # store third experiment as biomarkers
-    expo["biomarkers"] = SummarizedExperiment(assay_biomarkers, rowdata_biomarkers, coldata_biomarkers)
+    # # create OrderedDict object to store SummarizedExperiment objects
+    # expo = OrderedDict{String, SummarizedExperiment}()
+    # # store first experiment as microbiota
+    # expo["microbiota"] = SummarizedExperiment(assay_microbiota, rowdata_microbiota, coldata_microbiota)
+    # # store second experiment as metabolites
+    # expo["metabolites"] = SummarizedExperiment(assay_metabolites, rowdata_metabolites, coldata_metabolites)
+    # # store third experiment as biomarkers
+    # expo["biomarkers"] = SummarizedExperiment(assay_biomarkers, rowdata_biomarkers, coldata_biomarkers)
 
-    ##### SAMPLE DATA #####
+    # ##### SAMPLE DATA #####
 
-    # read in csv file on sample data as DataFrame
-    sample_data = CSV.File(joinpath(@__DIR__, "assets/sample_data.csv")) |> DataFrame
-    # rename cols to proper names
-    rename!(sample_data, Dict(:Sample => "name"))
+    # # read in csv file on sample data as DataFrame
+    # sample_data = CSV.File(joinpath(@__DIR__, "assets/sample_data.csv")) |> DataFrame
+    # # rename cols to proper names
+    # rename!(sample_data, Dict(:Sample => "name"))
 
-    ##### SAMPLE MAP ######
+    # ##### SAMPLE MAP ######
 
-    # read in csv file on sample map as DataFrame
-    sample_map = CSV.File(joinpath(@__DIR__, "assets/sample_map.csv")) |> DataFrame
-    # rename cols to proper names
-    rename!(sample_map, Dict(:assay => "experiment"))
-    rename!(sample_map, Dict(:primary => "sample"))
-    # put cols in proper order
-    select!(sample_map, [:sample, :experiment, :colname])
+    # # read in csv file on sample map as DataFrame
+    # sample_map = CSV.File(joinpath(@__DIR__, "assets/sample_map.csv")) |> DataFrame
+    # # rename cols to proper names
+    # rename!(sample_map, Dict(:assay => "experiment"))
+    # rename!(sample_map, Dict(:primary => "sample"))
+    # # put cols in proper order
+    # select!(sample_map, [:sample, :experiment, :colname])
 
-    ##### MULTIASSAY EXPERIMENT #####
+    # ##### MULTIASSAY EXPERIMENT #####
 
-    # construct MultiAssayExperiment object
-    HintikkaXOData = MultiAssayExperiment(expo, sample_data, sample_map)
+    # # construct MultiAssayExperiment object
+    # MultiAssayExperiment(expo, sample_data, sample_map)
 
-    return HintikkaXOData
+    experiment_files = [joinpath(@__DIR__, "assets/XO_microbiota_assays.csv"),
+                        joinpath(@__DIR__, "assets/XO_metabolites_assays.csv"),
+                        joinpath(@__DIR__, "assets/XO_biomarkers_assays.csv")]
+
+    experiment_names = ["microbiota", "metabolites", "biomarkers"]
+
+    import_mae_from_csv(experiment_files,
+        joinpath(@__DIR__, "assets/XO_sample_data.csv"),
+        joinpath(@__DIR__, "assets/XO_sample_map.csv"),
+        experiment_names = experiment_names)
 
 end
 
@@ -116,27 +125,5 @@ function OKeefeDSData()
     import_from_csv(joinpath(@__DIR__, "assets/DS_assays.csv"),
                     joinpath(@__DIR__, "assets/DS_rowdata.csv"),
                     joinpath(@__DIR__, "assets/DS_coldata.csv"))
-
-end
-
-function import_from_csv(assays_file::AbstractString, rowdata_file::AbstractString, coldata_file::AbstractString)
-
-    raw_assays = CSV.File(assays_file) |> DataFrame
-    assays = OrderedDict{String, AbstractArray}()
-    
-    for cur_group in unique(raw_assays[!, :group_name])
-        
-        assays[cur_group] = filter(:group_name => x -> x == cur_group, raw_assays)[:, 4:end] |> Matrix
-    
-    end
-
-    row_data = CSV.File(rowdata_file) |> DataFrame
-    rename!(row_data, Dict(:Column1 => "name"))
-    row_data[!, :name] = map(string, row_data[!, :name])
-
-    col_data = CSV.File(coldata_file) |> DataFrame
-    rename!(col_data, Dict(:Column1 => "name"))
-
-    SummarizedExperiment(assays, row_data, col_data)
 
 end
