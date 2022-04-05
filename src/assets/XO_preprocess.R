@@ -14,6 +14,6 @@ write.csv(microbiota_assays, "XO_microbiota_assays.csv")
 write.csv(metabolites_assays, "XO_metabolites_assays.csv")
 write.csv(biomarkers_assays, "XO_biomarkers_assays.csv")
 
-write.csv(colData(mae), "XO_sample_data.csv")
+write.csv(colData(mae), "sample_data.csv")
 write.csv(sampleMap(mae),"XO_sample_map.csv",
           row.names = FALSE)

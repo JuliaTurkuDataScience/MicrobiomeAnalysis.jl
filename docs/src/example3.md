@@ -87,8 +87,8 @@ As in the previous case, the csv files are re-assembled into a mae in Julia. The
 
 # make a list with the paths to the assays files
 experiment_files = ["XO_microbiota_assays.csv",
-                    "assets/XO_metabolites_assays.csv",
-                    "assets/XO_biomarkers_assays.csv"]
+                    "XO_metabolites_assays.csv",
+                    "XO_biomarkers_assays.csv"]
 
 # make a list with custom names for the experiments
 experiment_names = ["microbiota", "metabolites", "biomarkers"]
