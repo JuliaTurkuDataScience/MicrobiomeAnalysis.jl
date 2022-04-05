@@ -50,5 +50,6 @@ HintikkaXOData
 OKeefeDSData
 import_se_from_csv
 import_mae_from_csv
-MicrobiomeAnalysis.SummarizedExperiment
+SummarizedExperiment
+CommunityProfile
 ```

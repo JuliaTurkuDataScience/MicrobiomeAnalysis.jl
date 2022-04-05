@@ -1,6 +1,6 @@
 module MicrobiomeAnalysis
 
-using SummarizedExperiments: SummarizedExperiment, assay, rowdata, coldata
+using SummarizedExperiments: assay, rowdata, coldata
 using MultiAssayExperiments: MultiAssayExperiment
 using Distances: pairwise, BrayCurtis, HellingerDist, Jaccard
 using MultivariateStats: fit, MDS
@@ -14,6 +14,7 @@ using DataFrames: rename!, select!, DataFrame
 import Microbiome: shannon, ginisimpson, shannon!, ginisimpson!, braycurtis, jaccard, hellinger, pcoa, CommunityProfile
 import Base: size, log10
 import DataFrames: nrow, ncol, transform, transform!
+import SummarizedExperiments: SummarizedExperiment
 
 include("alpha.jl")
 export(shannon)
@@ -39,8 +40,8 @@ export(import_se_from_csv)
 export(import_mae_from_csv)
 
 include("converters.jl")
-export(convert_cp_to_se)
-export(convert_se_to_cp)
+export(SummarizedExperiment)
+export(CommunityProfile)
 
 include("artifacts.jl")
 export(HintikkaXOData)

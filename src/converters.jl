@@ -1,12 +1,12 @@
 """
-    convert_cp_to_se(comm::CommunityProfile)
+    SummarizedExperiment(comm::CommunityProfile)
 
 Converts a CommunityProfile to a SummarizedExperiment object.
 
 # Arguments
 - `comm::CommunityProfile`: the CommunityProfile to be converted.
 """
-function convert_cp_to_se(comm::CommunityProfile)
+function SummarizedExperiment(comm::CommunityProfile)
 
     counts = abundances(comm)
     assays = OrderedDict{String, AbstractArray}("comm" => counts)
@@ -47,18 +47,18 @@ function convert_cp_to_se(comm::CommunityProfile)
 end
 
 """
-    convert_se_to_cp(se::SummarizedExperiment)
+    CommunityProfile(se::SummarizedExperiment)
 
 Converts a SummarizedExperiment object to a CommunityProfile.
 
 # Arguments
 - `se::SummarizedExperiment`: the SummarizedExperiment object to be converted.
 """
-function convert_se_to_cp(se::SummarizedExperiment)
+function CommunityProfile(se::SummarizedExperiment)
 
     samps = MicrobiomeSample.(se.coldata.name)
 
-    taxa = Vector{Union{Missing, Taxon}}(missing, size(se.rowdata, 1))
+    taxa = Vector{Taxon}(undef, size(se.rowdata, 1))
     tax_ranks = ["strain", "subspecies", "species", "genus", "phamily", "order", "class", "phylum", "kingdom"]
 
     for (idx, row) in enumerate(eachrow(se.rowdata))
@@ -90,8 +90,6 @@ function convert_se_to_cp(se::SummarizedExperiment)
         end
     
     end
-
-    # new(comm)
 
     comm
 
