@@ -39,8 +39,8 @@ export(import_se_from_csv)
 export(import_mae_from_csv)
 
 include("converters.jl")
-export(SummarizedExperiment)
-export(CommunityProfile)
+export(convert_cp_to_se)
+export(convert_se_to_cp)
 
 include("artifacts.jl")
 export(HintikkaXOData)

@@ -1,12 +1,12 @@
 """
-    SummarizedExperiment(comm::CommunityProfile)
+    convert_cp_to_se(comm::CommunityProfile)
 
 Converts a CommunityProfile to a SummarizedExperiment object.
 
 # Arguments
 - `comm::CommunityProfile`: the CommunityProfile to be converted.
 """
-function SummarizedExperiment(comm::CommunityProfile)
+function convert_cp_to_se(comm::CommunityProfile)
 
     counts = abundances(comm)
     assays = OrderedDict{String, AbstractArray}("comm" => counts)
@@ -19,7 +19,7 @@ function SummarizedExperiment(comm::CommunityProfile)
 
     for taxon in taxa
 
-        rowdata[!, taxon] = Vector{String}(undef, size(rowdata, 1))
+        rowdata[!, taxon] = Vector{Union{Missing, String}}(missing, size(rowdata, 1))
 
     end
 
@@ -46,12 +46,53 @@ function SummarizedExperiment(comm::CommunityProfile)
 
 end
 
-function CommunityProfile(se::SummarizedExperiment)
+"""
+    convert_se_to_cp(se::SummarizedExperiment)
+
+Converts a SummarizedExperiment object to a CommunityProfile.
+
+# Arguments
+- `se::SummarizedExperiment`: the SummarizedExperiment object to be converted.
+"""
+function convert_se_to_cp(se::SummarizedExperiment)
 
     samps = MicrobiomeSample.(se.coldata.name)
-    taxa = [Taxon(i, :species) for i in se.rowdata.name]
+
+    taxa = Vector{Union{Missing, Taxon}}(missing, size(se.rowdata, 1))
+    tax_ranks = ["strain", "subspecies", "species", "genus", "phamily", "order", "class", "phylum", "kingdom"]
+
+    for (idx, row) in enumerate(eachrow(se.rowdata))
+
+        not_missing_taxa = names(row)[collect(.~ ismissing.(values(row)))]
+
+        for taxon in tax_ranks
+
+            if sum(taxon .== not_missing_taxa) > 0
+
+                taxa[idx] = Taxon(row[Symbol(taxon)], Symbol(taxon))
+
+            end
+
+        end
+
+    end
+
     mat = assay(se, 1)
 
-    CommunityProfile(mat, taxa, samps)
+    comm = CommunityProfile(mat, taxa, samps)
+
+    for key in Symbol.(names(se.coldata)[2:end])
+
+        for (idx, row) in enumerate(eachrow(se.coldata))
+        
+            set!(samples(comm)[idx], key, row[key])
+    
+        end
+    
+    end
+
+    # new(comm)
+
+    comm
 
 end
