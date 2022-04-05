@@ -8,10 +8,10 @@ using FdeSolver: FDEsolver
 using DataStructures, Random, Plots
 using CSV
 using Statistics: mean, std
-using Microbiome: CommunityProfile, abundances, features, featurenames, metadata 
+using Microbiome: CommunityProfile, abundances, features, featurenames, metadata, Taxon, MicrobiomeSample
 using DataFrames: rename!, select!, DataFrame
 
-import Microbiome: shannon, ginisimpson, shannon!, ginisimpson!, braycurtis, jaccard, hellinger, pcoa
+import Microbiome: shannon, ginisimpson, shannon!, ginisimpson!, braycurtis, jaccard, hellinger, pcoa, CommunityProfile
 import Base: size, log10
 import DataFrames: nrow, ncol, transform, transform!
 
@@ -40,6 +40,7 @@ export(import_mae_from_csv)
 
 include("converters.jl")
 export(SummarizedExperiment)
+export(CommunityProfile)
 
 include("artifacts.jl")
 export(HintikkaXOData)

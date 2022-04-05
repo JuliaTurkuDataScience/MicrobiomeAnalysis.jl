@@ -45,3 +45,13 @@ function SummarizedExperiment(comm::CommunityProfile)
     SummarizedExperiment(assays, rowdata, coldata)
 
 end
+
+function CommunityProfile(se::SummarizedExperiment)
+
+    samps = MicrobiomeSample.(se.coldata.name)
+    taxa = [Taxon(i, :species) for i in se.rowdata.name]
+    mat = assay(se, 1)
+
+    CommunityProfile(mat, taxa, samps)
+
+end
