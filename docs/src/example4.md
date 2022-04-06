@@ -9,6 +9,8 @@ using Microbiome, SummarizedExperiments
 
 ## From CP to SE
 
+First, a CommunityProfile is created from its building blocks and some metadata about the sampling sites (origin) is added.
+
 ```@example cp1
 # generate array with sample data
 samps = MicrobiomeSample.(["s$i" for i in 1:10]);
@@ -30,11 +32,16 @@ for (sample, value) in zip(1:length(samples(comm)), ["origin$i" for i in 1:lengt
 end
 ```
 
+Next, the CommunityProfile can be reshaped into a SmmarizedExperiment object by redifining its object type, i.e., `SummarizedExperiment(comm::CommunityProfile).
+
 ```@example cp1
 # convert cp to se
 se_converted = SummarizedExmperiment(comm)
 ```
+
 ## From SE to CP
+
+A SummarizedExperiment object can also be converted into a CommunityProfile. As an example, we will use the `se` constructed in the [first tutorial](https://juliaturkudatascience.github.io/MicrobiomeAnalysis.jl/dev/example1/), which is redefined through `CommunityProfile(se::SummarizedExperiment)`.
 
 ```@example se
 # view se
@@ -42,4 +49,16 @@ se
 # convert se to cp
 comm_converted = CommunityProfile(se)
 ```
+
+It is highly recommended for the conversion to succeed that the rowdata of the original SummarizedExperiment object contains columns named as and specifying at least one of the following:
+
+* strain
+* subspecies
+* species
+* genus
+* phamily
+* order
+* class
+* phylum
+* kingdom
 
