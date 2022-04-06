@@ -32,7 +32,7 @@ for (sample, value) in zip(1:length(samples(comm)), ["origin$i" for i in 1:lengt
 end
 ```
 
-Next, the CommunityProfile can be reshaped into a SmmarizedExperiment object by redifining its object type, i.e., `SummarizedExperiment(comm::CommunityProfile).
+Next, the CommunityProfile can be reshaped into a SmmarizedExperiment object by redifining its object type, i.e., `SummarizedExperiment(comm::CommunityProfile)`.
 
 ```@example cp1
 # convert cp to se
@@ -50,7 +50,7 @@ se
 comm_converted = CommunityProfile(se)
 ```
 
-It is highly recommended for the conversion to succeed that the rowdata of the original SummarizedExperiment object contains columns named as and specifying at least one of the following:
+It is highly recommended for the conversion to succeed that the rowdata of the original SummarizedExperiment object contains columns named by and specifying at least one of the following:
 
 * strain
 * subspecies
