@@ -32,7 +32,8 @@ makedocs(format = Documenter.HTML(),
              "Tutorial" => Any[
                 "SE construction and analysis" => "example1.md",
                 "MAE construction and manipulation" => "example2.md",
-                "SE and MAE retrieval" => "example3.md"
+                "SE and MAE retrieval" => "example3.md",
+                "CommunityProfile conversion" => "example4.md"
              ]
                ])
 
