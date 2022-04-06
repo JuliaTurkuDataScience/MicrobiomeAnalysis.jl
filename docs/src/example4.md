@@ -2,16 +2,17 @@
 
 Both SummarizedExperiment (SE) and CommunityProfile (CP) containers efficiently integrate microbiome profile data into one comprehensive object, from which information is easy to retrieve and analyse. The former originates from SummarizedExperiments.jl, whereas the latter belongs to the [EcoJulia framework](https://ecojulia.org/), and the way they internally organise the data is slightly divergent. Nevertheless, interoperability and conversion between them is possible.
 
-```@setup cp1
+```@setup cp
 using MicrobiomeAnalysis
 using Microbiome, SummarizedExperiments
+using DataFrames, DataStructures
 ```
 
 ## From CP to SE
 
 First, a CommunityProfile is created from its building blocks and some metadata about the sampling sites (origin) is added.
 
-```@example cp1
+```@example cp
 # generate array with sample data
 samps = MicrobiomeSample.(["s$i" for i in 1:10]);
 
@@ -36,14 +37,19 @@ Next, the CommunityProfile can be reshaped into a SmmarizedExperiment object by 
 
 ```@example cp1
 # convert cp to se
-se_converted = SummarizedExmperiment(comm)
+se_converted = SummarizedExperiment(comm)
 ```
 
 ## From SE to CP
 
 A SummarizedExperiment object can also be converted into a CommunityProfile. As an example, we will use the `se` constructed in the [first tutorial](https://juliaturkudatascience.github.io/MicrobiomeAnalysis.jl/dev/example1/), which is redefined through `CommunityProfile(se::SummarizedExperiment)`.
 
-```@example se
+```@example cp
+t, Xapp = LVmodel(); # hide
+assays = OrderedDict{String, AbstractArray}("sim" => Xapp); # hide
+rowdata = DataFrame(name = ["strain$i" for i in 1:20], genus = ["g$i" for i in 1:20], species = ["s$i" for i in 1:20]); # hide
+coldata = DataFrame(name = ["t$i" for i in 1:501], condition = rand(["lake", "ocean", "river"], 501), time = 1:501); # hide
+se = SummarizedExperiment(assays, rowdata, coldata); # hide
 # view se
 se
 # convert se to cp
