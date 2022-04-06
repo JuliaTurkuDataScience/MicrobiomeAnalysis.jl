@@ -8,7 +8,7 @@ using FdeSolver: FDEsolver
 using DataStructures, Random, Plots
 using CSV
 using Statistics: mean, std
-using Microbiome: CommunityProfile, abundances, features, featurenames, metadata, Taxon, MicrobiomeSample
+using Microbiome: CommunityProfile, abundances, features, featurenames, samples, metadata, set!, Taxon, MicrobiomeSample
 using DataFrames: rename!, select!, DataFrame
 
 import Microbiome: shannon, ginisimpson, shannon!, ginisimpson!, braycurtis, jaccard, hellinger, pcoa, CommunityProfile
