@@ -37,4 +37,4 @@ makedocs(format = Documenter.HTML(),
              ]
                ])
 
-deploydocs(repo="github.com/JuliaTurkuDataScience/MicrobiomeAnalysis.jl")
+deploydocs(repo="github.com/JuliaTurkuDataScience/MicrobiomeAnalysis.jl", push_preview=true)
