@@ -115,7 +115,7 @@ end
 #     joinpath(@__DIR__, "assets/sample_map.csv"),
 #     experiment_names = experiment_names)
 
-function construct_assays(raw_assays::DataFrame, groups::Vector{<:AbstractArray})
+function construct_assays(raw_assays::DataFrame, groups::Vector{<:AbstractString})
 
     assays = OrderedDict{String, AbstractArray}()
 
