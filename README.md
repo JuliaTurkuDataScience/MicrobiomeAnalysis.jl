@@ -1,6 +1,6 @@
 # MicrobiomeAnalysis.jl
 
-[![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://juliaturkudatascience.github.io/MicrobiomeAnalysis.jl/stable/readme/)
+[![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://juliaturkudatascience.github.io/MicrobiomeAnalysis.jl/dev/readme/)
 [![CI](https://github.com/JuliaTurkuDataScience/MicrobiomeAnalysis.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/JuliaTurkuDataScience/MicrobiomeAnalysis.jl/actions/workflows/CI.yml)
 [![codecov](https://codecov.io/gh/JuliaTurkuDataScience/MicrobiomeAnalysis.jl/branch/main/graph/badge.svg?token=VHEH1ZQLPA)](https://codecov.io/gh/JuliaTurkuDataScience/MicrobiomeAnalysis.jl)
 
