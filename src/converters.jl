@@ -11,23 +11,7 @@ function SummarizedExperiment(comm::CommunityProfile)
     counts = abundances(comm)
     assays = OrderedDict{String, AbstractArray}("comm" => counts)
 
-    rowdata = DataFrame(
-        name = featurenames(comm)
-    )
-
-    taxa = unique([feature.rank for feature in features(comm)])
-
-    for taxon in taxa
-
-        rowdata[!, taxon] = Vector{Union{Missing, String}}(missing, size(rowdata, 1))
-
-    end
-
-    for (idx, feature) in enumerate(features(comm))
-
-        rowdata[idx, feature.rank] = feature.name
-
-    end 
+    rowdata = convert_rowdata(comm) 
     
     coldata = DataFrame()
     symlist = [i for i in keys(metadata(comm)[1])]
@@ -94,3 +78,78 @@ function CommunityProfile(se::SummarizedExperiment)
     comm
 
 end
+
+function convert_rowdata(comm::CommunityProfile{<:Real, Taxon, MicrobiomeSample})
+
+    rowdata = DataFrame(
+        name = featurenames(comm)
+    )
+
+    taxa = unique([feature.rank for feature in features(comm)])
+
+    for taxon in taxa
+
+        rowdata[!, taxon] = Vector{Union{Missing, String}}(missing, size(rowdata, 1))
+
+    end
+
+    for (idx, feature) in enumerate(features(comm))
+
+        rowdata[idx, feature.rank] = feature.name
+
+    end
+
+    rowdata
+
+end
+
+function convert_rowdata(comm::CommunityProfile{<:Real, GeneFunction, MicrobiomeSample})
+
+    rowdata = DataFrame(
+        name = featurenames(comm)
+    )
+
+    taxa = unique([feature.taxon.rank for feature in features(comm)])
+
+    for taxon in taxa
+
+        rowdata[!, taxon] = Vector{Union{Missing, String}}(missing, size(rowdata, 1))
+
+    end
+
+    for (idx, feature) in enumerate(features(comm))
+
+        rowdata[idx, feature.taxon.rank] = feature.taxon.name
+
+    end
+
+    rowdata
+
+end
+
+
+using Microbiome
+# generate array with sample data
+samps = MicrobiomeSample.(["s$i" for i in 1:10]);
+
+# generate array with feature data
+taxa = [[Taxon("s$i", :species) for i in 1:10]; [Taxon("g$i", :genus) for i in 1:10]];
+
+# generate matrix with random entries
+mat = rand(20, 10);
+
+# create cp instance
+comm = CommunityProfile(mat, taxa, samps)
+
+# add some metadata about origin
+for (sample, value) in zip(1:length(samples(comm)), ["origin$i" for i in 1:length(samples(comm))])
+
+    set!(samples(comm)[sample], :origin, value)
+
+end
+
+gene_functions = GeneFunction.(["f$i" for i in 1:20], taxa)
+
+comm = CommunityProfile(mat, gene_functions, samps)
+se = SummarizedExperiment(comm)
+comm
