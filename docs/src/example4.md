@@ -35,7 +35,7 @@ end
 
 Next, the CommunityProfile can be reshaped into a SmmarizedExperiment object by redifining its object type, i.e., `SummarizedExperiment(comm::CommunityProfile)`.
 
-```@example cp1
+```@example cp
 # convert cp to se
 se_converted = SummarizedExperiment(comm)
 ```
