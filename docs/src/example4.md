@@ -33,7 +33,7 @@ for (sample, value) in zip(1:length(samples(comm)), ["origin$i" for i in 1:lengt
 end
 ```
 
-Next, the CommunityProfile can be reshaped into a SmmarizedExperiment object by redifining its object type, i.e., `SummarizedExperiment(comm::CommunityProfile)`.
+Next, the CommunityProfile can be reshaped into a SmmarizedExperiment object by redifining its object type, i.e., `SummarizedExperiment(comm::CommunityProfile)`. This method can also be applied to functional profiles, where GeneFunction instances are found in place of Taxon ones.
 
 ```@example cp
 # convert cp to se
@@ -68,3 +68,6 @@ It is highly recommended for the conversion to succeed that the rowdata of the o
 * phylum
 * kingdom
 
+## Further applications
+
+BioBakeryUtils.jl implements [MetaPhlAn](http://docs.ecojulia.org/BiobakeryUtils.jl/stable/metaphlan/) and [HUMAnN](http://docs.ecojulia.org/BiobakeryUtils.jl/stable/humann/) ports for the Julia language. Both these workflows return an abundance or gene assay in the form of a CommunityProfile, which can be easily converted into a SummarizedExperiment object. Thus, results from several sources, such as MetaPhlAn and HUMAnN, can be integrated into a single MultiAssayExperiment and analysed in parallel, as explained in [tutorial 2](https://juliaturkudatascience.github.io/MicrobiomeAnalysis.jl/dev/example2/).
