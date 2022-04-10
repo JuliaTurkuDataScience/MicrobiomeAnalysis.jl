@@ -1,5 +1,7 @@
 module MicrobiomeAnalysis
 
+# comment here
+
 using SummarizedExperiments: assay, rowdata, coldata
 using MultiAssayExperiments: MultiAssayExperiment
 using Distances: pairwise, BrayCurtis, HellingerDist, Jaccard
