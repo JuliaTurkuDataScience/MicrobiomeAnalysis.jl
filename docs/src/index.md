@@ -37,6 +37,12 @@ transform
 transform!
 ```
 
+### Sorting by top taxa
+
+```@docs
+select_top_taxa
+```
+
 ### Visualisation
 
 ```@docs
