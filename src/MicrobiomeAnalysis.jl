@@ -9,7 +9,7 @@ using DataStructures, Random, Plots
 using CSV
 using Statistics: mean, std
 using Microbiome: CommunityProfile, abundances, features, featurenames, samples, metadata, set!, Taxon, MicrobiomeSample, GeneFunction
-using DataFrames: rename!, select!, DataFrame
+using DataFrames: rename!, select!, DataFrame, sort, dropmissing
 
 import Microbiome: shannon, ginisimpson, shannon!, ginisimpson!, braycurtis, jaccard, hellinger, pcoa, CommunityProfile
 import Base: size, log10
@@ -55,5 +55,8 @@ export(pa)
 export(relabund)
 export(ztransform)
 export(clr)
+
+include("sorters.jl")
+export(select_top_taxa)
 
 end
