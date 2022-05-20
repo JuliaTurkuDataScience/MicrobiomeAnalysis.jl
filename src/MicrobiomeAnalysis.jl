@@ -1,7 +1,7 @@
 module MicrobiomeAnalysis
 
-using SummarizedExperiments: assay, rowdata, coldata
-using MultiAssayExperiments: MultiAssayExperiment
+# using SummarizedExperiments: assay, rowdata, coldata
+# using MultiAssayExperiments: MultiAssayExperiment
 using Distances: pairwise, BrayCurtis, HellingerDist, Jaccard
 using MultivariateStats: fit, MDS
 using FdeSolver: FDEsolver
@@ -15,6 +15,9 @@ import Microbiome: shannon, ginisimpson, shannon!, ginisimpson!, braycurtis, jac
 import Base: size, log10
 import DataFrames: nrow, ncol, transform, transform!
 import SummarizedExperiments: SummarizedExperiment
+
+using Reexport
+@reexport using SummarizedExperiments, MultiAssayExperiments
 
 include("alpha.jl")
 export(shannon)

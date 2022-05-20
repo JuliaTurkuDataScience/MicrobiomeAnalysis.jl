@@ -1,5 +1,4 @@
 using MicrobiomeAnalysis
-using MultiAssayExperiments, SummarizedExperiments
 using DataFrames, DataStructures
 using Plots, MultivariateStats
 
