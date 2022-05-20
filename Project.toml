@@ -28,6 +28,7 @@ Microbiome = "0.9"
 MultiAssayExperiments = "0.1"
 MultivariateStats = "0.9"
 Plots = "1"
+Reexport = "1"
 SummarizedExperiments = "0.1"
 julia = "1"
 
