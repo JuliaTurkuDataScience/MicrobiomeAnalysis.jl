@@ -1,10 +1,10 @@
 using MicrobiomeAnalysis
-using SummarizedExperiments, Microbiome
+using Microbiome # , SummarizedExperiments
 using Test
 
 @testset "MicrobiomeAnalysis.jl" begin
 
-    se = exampleobject(40, 20)
+    se = SummarizedExperiments.exampleobject(40, 20)
 
     shannon_output = MicrobiomeAnalysis.shannon(se, "foo")
     MicrobiomeAnalysis.shannon!(se, "foo")

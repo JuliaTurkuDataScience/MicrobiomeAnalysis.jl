@@ -1,10 +1,10 @@
 using MicrobiomeAnalysis
-using SummarizedExperiments, Microbiome
+using Microbiome # , SummarizedExperiments
 using Test
 
 @testset "MicrobiomeAnalysis.jl" begin
 
-    se = exampleobject(40, 20)
+    se = SummarizedExperiments.exampleobject(40, 20)
 
     samps = MicrobiomeSample.([samples for samples in se.coldata.name])
     taxa = [Taxon("$taxa", :species) for taxa in se.rowdata.name]

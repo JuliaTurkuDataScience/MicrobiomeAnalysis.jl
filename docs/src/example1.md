@@ -3,7 +3,7 @@
 This example walks you through the microdiversity analysis of a time series that simulates a Lotka-Volterra community with 20 strains and 500 time points.
 
 ```@setup se
-using MicrobiomeAnalysis, SummarizedExperiments
+using MicrobiomeAnalysis # , SummarizedExperiments
 using DataFrames, DataStructures
 using Plots, MultivariateStats
 ```

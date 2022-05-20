@@ -1,5 +1,5 @@
 using MicrobiomeAnalysis
-using SummarizedExperiments, FdeSolver
+# using SummarizedExperiments
 using Test
 
 @testset "MicrobiomeAnalysis.jl" begin

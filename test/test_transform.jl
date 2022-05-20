@@ -1,10 +1,10 @@
 using MicrobiomeAnalysis
-using SummarizedExperiments, Statistics
+using Statistics # , SummarizedExperiments
 using Test
 
 @testset "MicrobiomeAnalysis.jl" begin
 
-    se = exampleobject(40, 20)
+    se = SummarizedExperiments.exampleobject(40, 20)
     foo_assay = assay(se, "foo")
     bar_assay = assay(se, "bar")
 

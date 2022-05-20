@@ -1,10 +1,10 @@
 using MicrobiomeAnalysis
-using SummarizedExperiments
+# using SummarizedExperiments
 using Test
 
 @testset "MicrobiomeAnalysis.jl" begin
 
-    se = exampleobject(40, 20)
+    se = SummarizedExperiments.exampleobject(40, 20)
 
     coldata(se).time = 1:20
 
