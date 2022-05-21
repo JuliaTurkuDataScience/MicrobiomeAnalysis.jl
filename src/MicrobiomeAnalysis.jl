@@ -13,7 +13,7 @@ using DataFrames: rename!, select!, DataFrame, sort, dropmissing
 
 import Microbiome: shannon, ginisimpson, shannon!, ginisimpson!, braycurtis, jaccard, hellinger, pcoa, CommunityProfile
 import Base: size, log10
-import DataFrames: nrow, ncol, transform, transform!
+import DataFrames: nrow, ncol, transform, transform!, dropmissing
 import SummarizedExperiments: SummarizedExperiment
 
 using Reexport
@@ -61,5 +61,6 @@ export(clr)
 
 include("sorters.jl")
 export(select_top_taxa)
+export(dropmissing)
 
 end

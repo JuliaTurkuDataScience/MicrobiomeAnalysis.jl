@@ -42,3 +42,19 @@ function select_top_taxa(se::SummarizedExperiment, assay_names::Vector{String}; 
     sort(dropmissing(features, Symbol.(assay_names)), Symbol.(assay_names), rev = true)[1:top_n, :]
 
 end
+
+"""
+    dropmissing(se::SummarizedExperiment, assay_name::String)
+
+Drop rows / features with missing elements for a specific assay.
+
+# Arguments
+- `se::SummarizedExperiment`: the experiment object of interest.
+- `assay_name::String`: the name of the assay whose missing values should be dropped.
+"""
+function dropmissing(se::SummarizedExperiment, assay_name::String)
+    
+    keep_rows = map(x -> sum(ismissing.(x)) == 0, eachrow(assay(se, assay_name)))
+    se[keep_rows, :]
+
+end
