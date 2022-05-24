@@ -1,9 +1,11 @@
 # Tutorial 5: Wrangle real data into a SummarizedExperiment
 
+Until now, experiments were either simulated, imported from R or converted from a CommunityProfile. Producing instances of SummarizedExperiment from scratch might appear more challenging, as it requires some data analysis skills to wrangle the raw data into the necessary shape. Also, filtering missing values or setting some thresholds could also come into handy. Here, a few possible approaches are explained.
+
 ## Assays
 
 It is recommended to store experimental results and bioinformatics output into an
-Excel workbook or as a group of csv files, which can be easily read in Julia as follows:
+Excel workbook or as a group of csv files, which can be easily imported.
 
 ```@example re
 using XLSX, CSV, DataFrames

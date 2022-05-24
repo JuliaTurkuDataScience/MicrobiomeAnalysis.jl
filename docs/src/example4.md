@@ -5,7 +5,6 @@ Both SummarizedExperiment (SE) and CommunityProfile (CP) containers efficiently 
 ```@setup cp
 using MicrobiomeAnalysis
 using Microbiome
-using DataFrames
 ```
 
 ## From CP to SE

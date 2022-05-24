@@ -4,7 +4,6 @@ This example walks you through the microdiversity analysis of a time series that
 
 ```@setup se
 using MicrobiomeAnalysis
-using DataFrames
 using Plots, MultivariateStats
 ```
 
