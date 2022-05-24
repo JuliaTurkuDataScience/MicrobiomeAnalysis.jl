@@ -34,7 +34,9 @@ makedocs(format = Documenter.HTML(),
                 "MAE construction and manipulation" => "example2.md",
                 "SE and MAE retrieval" => "example3.md",
                 "CommunityProfile conversion" => "example4.md"
-             ]
+                "Methods for real data" => "example5.md"
+             
+                ]
                ])
 
 deploydocs(repo="github.com/JuliaTurkuDataScience/MicrobiomeAnalysis.jl", push_preview=true)

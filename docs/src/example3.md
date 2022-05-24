@@ -5,7 +5,6 @@ as a collection of csv files.
 
 ```@setup mae2
 using MicrobiomeAnalysis
-# using MultiAssayExperiments, SummarizedExperiments
 ```
 
 ## Importing SE
