@@ -4,8 +4,6 @@ Both SummarizedExperiment (SE) and CommunityProfile (CP) containers efficiently 
 
 ```@setup cp
 using MicrobiomeAnalysis
-using Microbiome # , SummarizedExperiments
-using DataFrames, DataStructures
 ```
 
 ## From CP to SE
@@ -13,6 +11,8 @@ using DataFrames, DataStructures
 First, a CommunityProfile is created from its building blocks and some metadata about the sampling sites (origin) is added.
 
 ```@example cp
+using Microbiome
+
 # generate array with sample data
 samps = MicrobiomeSample.(["s$i" for i in 1:10]);
 

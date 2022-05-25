@@ -1,0 +1,12 @@
+"","genus","species","native"
+"bin1","g__MGIIa-L2","s__MGIIa-L2 sp013911465",true
+"bin9","g__Polaribacter","s__",nothing
+"bin10","g__Alteromonas","s__Alteromonas sp009811415",false
+"bin5","g__Shewanella","s__",true
+"bin8","g__Vibrio","s__Vibrio azureus",false
+"bin2","g__UBA3478","s__UBA3478 sp011525015",false
+"bin3","g__GCA-2684655","s__",true
+"bin4","g__","s__",nothing
+"bin6","g__Sphingomonas","s__Sphingomonas ginsenosidimutans",true
+"bin7","g__Flavobacterium","s__Flavobacterium sp002862805",true
+

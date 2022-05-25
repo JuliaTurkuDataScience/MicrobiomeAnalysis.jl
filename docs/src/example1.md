@@ -3,9 +3,7 @@
 This example walks you through the microdiversity analysis of a time series that simulates a Lotka-Volterra community with 20 strains and 500 time points.
 
 ```@setup se
-using MicrobiomeAnalysis # , SummarizedExperiments
-using DataFrames, DataStructures
-using Plots, MultivariateStats
+using MicrobiomeAnalysis
 ```
 
 ## Simulation
@@ -74,6 +72,8 @@ braycurtis_output = braycurtis(se, "sim");
 jaccard_output = jaccard(se, "sim");
 # evaluate hellinger dissimilarity index
 hellinger_output = hellinger(se, "sim");
+
+using MultivariateStats, Plots
 
 # run pcoa across 4 dimensions with jaccard dissimilarity
 pcoa_model = pcoa(se, "sim", dist = jaccard, dim_number = 4);

@@ -4,8 +4,6 @@ MultiAssayExperiment objects aim to encapsulate and a variety of aspects on the 
 
 ```@setup mae1
 using MicrobiomeAnalysis
-# using MultiAssayExperiments, SummarizedExperiments
-using DataFrames, DataStructures
 ```
 
 ## Simulation
