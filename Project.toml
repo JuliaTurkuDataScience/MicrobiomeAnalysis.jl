@@ -1,7 +1,7 @@
 name = "MicrobiomeAnalysis"
 uuid = "09137a06-29c6-4e66-9476-ab7e4b8c7492"
 authors = ["Giulio Benedetti <giuliobene2000@gmail.com> and contributors"]
-version = "0.3.0"
+version = "0.3.1"
 
 [deps]
 CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
@@ -25,7 +25,7 @@ DataStructures = "0.18"
 Distances = "0.10"
 FdeSolver = "1"
 Microbiome = "0.9"
-MultiAssayExperiments = "0.1"
+MultiAssayExperiments = "0.1, 0.2"
 MultivariateStats = "0.9"
 Plots = "1"
 Reexport = "1"
