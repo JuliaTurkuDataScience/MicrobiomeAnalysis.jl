@@ -4,7 +4,6 @@ This example walks you through the microdiversity analysis of a time series that
 
 ```@setup se
 using MicrobiomeAnalysis
-using Plots, MultivariateStats
 ```
 
 ## Simulation
@@ -73,6 +72,8 @@ braycurtis_output = braycurtis(se, "sim");
 jaccard_output = jaccard(se, "sim");
 # evaluate hellinger dissimilarity index
 hellinger_output = hellinger(se, "sim");
+
+using MultivariateStats, Plots
 
 # run pcoa across 4 dimensions with jaccard dissimilarity
 pcoa_model = pcoa(se, "sim", dist = jaccard, dim_number = 4);
