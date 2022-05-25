@@ -37,7 +37,7 @@ function transform!(se::SummarizedExperiment, assay_name::String, method::Functi
 
 end
 
-function log10(assay::Matrix{<:Real}, pseudocount::Real = 0)
+function log10(assay::Matrix, pseudocount::Real = 0)
 
     assay .+= pseudocount
 
@@ -45,9 +45,9 @@ function log10(assay::Matrix{<:Real}, pseudocount::Real = 0)
 
 end
 
-pa(assay::Matrix{<:Real}, threshold::Real) = map(x -> ifelse(x > threshold, 1, 0), assay)
+pa(assay::Matrix, threshold::Real) = map(x -> ifelse(x > threshold, 1, 0), assay)
 
-function relabund(assay::Matrix{<:Real})
+function relabund(assay::Matrix)
 
     mat = zeros(size(assay))
 
@@ -62,7 +62,7 @@ function relabund(assay::Matrix{<:Real})
 
 end
 
-function ztransform(assay::Matrix{<:Real})
+function ztransform(assay::Matrix)
 
     mat = zeros(size(assay))
 
@@ -79,7 +79,7 @@ function ztransform(assay::Matrix{<:Real})
 
 end
 
-function clr(assay::Matrix{<:Real}, pseudocount::Real = 0)
+function clr(assay::Matrix, pseudocount::Real = 0)
 
     assay .+= pseudocount
 
