@@ -4,7 +4,7 @@
 [![CI](https://github.com/JuliaTurkuDataScience/MicrobiomeAnalysis.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/JuliaTurkuDataScience/MicrobiomeAnalysis.jl/actions/workflows/CI.yml)
 [![codecov](https://codecov.io/gh/JuliaTurkuDataScience/MicrobiomeAnalysis.jl/branch/main/graph/badge.svg?token=VHEH1ZQLPA)](https://codecov.io/gh/JuliaTurkuDataScience/MicrobiomeAnalysis.jl)
 
-This package provides common methods for microbiome analysis based on the [SummarizedExperiment](https://github.com/LTLA/SummarizedExperiments.jl) and [MultiAssayExperiment](https://github.com/LTLA/MultiAssayExperiment.jl) data containers. This work in Julia language reflects [related developments in R](https://github.com/microbiome/mia/).
+This package provides common methods for microbiome analysis based on the [SummarizedExperiment](https://ltla.github.io/SummarizedExperiments.jl/dev/) and [MultiAssayExperiment](https://ltla.github.io/MultiAssayExperiments.jl/dev/) data containers. This work in Julia language reflects [related developments in R](https://github.com/microbiome/mia/).
 
 
 
