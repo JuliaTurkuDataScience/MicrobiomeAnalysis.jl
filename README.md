@@ -23,7 +23,7 @@ For the latest functionality, you can clone this repo locally and start Julia wi
 
 ```bash
 git clone git@github.com:JuliaTurkuDataScience/MicrobiomeAnalysis.jl.git
-cd McrobiomeAnalysis.jl
+cd MicrobiomeAnalysis.jl
 julia --project=.
 ```
 and then run this in the Julia REPL:

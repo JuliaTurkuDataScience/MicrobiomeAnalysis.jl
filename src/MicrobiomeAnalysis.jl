@@ -5,19 +5,21 @@ module MicrobiomeAnalysis
 using Distances: pairwise, BrayCurtis, HellingerDist, Jaccard
 using MultivariateStats: fit, MDS
 using FdeSolver: FDEsolver
-using DataStructures, Random, Plots
-using CSV
+using Plots: plot
 using Statistics: mean, std
 using Microbiome: CommunityProfile, abundances, features, featurenames, samples, metadata, set!, Taxon, MicrobiomeSample, GeneFunction
-using DataFrames: rename!, select!, DataFrame, sort, dropmissing
+using DataFrames: rename!, select!, sort, dropmissing
+using Random, CSV
 
 import Microbiome: shannon, ginisimpson, shannon!, ginisimpson!, braycurtis, jaccard, hellinger, pcoa, CommunityProfile
 import Base: size, log10
-import DataFrames: nrow, ncol, transform, transform!
+import DataFrames: nrow, ncol, transform, transform!, dropmissing
 import SummarizedExperiments: SummarizedExperiment
 
 using Reexport
 @reexport using SummarizedExperiments, MultiAssayExperiments
+@reexport using DataStructures: OrderedDict
+@reexport using DataFrames: DataFrame
 
 include("alpha.jl")
 export(shannon)
@@ -61,5 +63,6 @@ export(clr)
 
 include("sorters.jl")
 export(select_top_taxa)
+export(dropmissing)
 
 end

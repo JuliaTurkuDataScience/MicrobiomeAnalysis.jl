@@ -37,10 +37,11 @@ transform
 transform!
 ```
 
-### Sorting by top taxa
+### Sorting and Filtering
 
 ```@docs
 select_top_taxa
+dropmissing
 ```
 
 ### Visualisation
