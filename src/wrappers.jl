@@ -85,7 +85,7 @@ function abundance_plot(se::SummarizedExperiment, assay_name::String)
 
     end
 
-    if sum(ismissing.(assay(se, "nucl_div"))) != 0
+    if sum(ismissing.(assay(se, assay_name))) != 0
 
         error("the input assay contains rows with missing values; they should be either removed or replaced with reasonable numerical values")
 
