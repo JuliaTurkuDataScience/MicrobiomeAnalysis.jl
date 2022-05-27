@@ -85,19 +85,19 @@ function abundance_plot(se::SummarizedExperiment, assay_name::String)
 
     end
 
+    if sum(ismissing.(assay(se, "nucl_div"))) != 0
+
+        error("the input assay contains rows with missing values; they should be either removed or replaced with reasonable numerical values")
+
+    end
+
     labels = reshape(se.rowdata.name, (1, length(se.rowdata.name)))
 
-    p = plot(se.coldata.time, assay(se, assay_name)',
+    p = plot(se.coldata.time, Number.(assay(se, assay_name))',
              label = labels, legend_position = :outerleft,
              xaxis = "Time", yaxis = "Abundance")
 
     return(p)
-
-end
-
-function size(se::SummarizedExperiment)
-
-    nrow(se.rowdata), nrow(se.coldata)
 
 end
 
