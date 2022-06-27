@@ -30,8 +30,8 @@ end
 
 @testset "MicrobiomeAnalysis.jl" begin
 
-    se2 = SummarizedExperiment(comm)
-    comm2 = CommunityProfile(se2)
+    se2 = MicrobiomeAnalysis.SummarizedExperiment(comm)
+    comm2 = MicrobiomeAnalysis.CommunityProfile(se2)
 
     @test @isdefined se2
     @test @isdefined comm2
