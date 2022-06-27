@@ -7,8 +7,6 @@
 This package provides common methods for microbiome analysis based on the [SummarizedExperiment](https://ltla.github.io/SummarizedExperiments.jl/dev/) and [MultiAssayExperiment](https://ltla.github.io/MultiAssayExperiments.jl/dev/) data containers. This work in Julia language reflects [related developments in R](https://github.com/microbiome/mia/).
 
 
-
-
 ## Installation
 
 This package has been registered in the Julia [General Registry](https://github.com/JuliaRegistries/General), so it can be installed as follows:
@@ -38,6 +36,7 @@ Now you should be able to access and use all exported functions, for instance:
 shannon
 > shannon (generic function with 3 methods)
 ```
+
 
 ## Documentation
 
