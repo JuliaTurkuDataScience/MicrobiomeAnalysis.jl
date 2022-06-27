@@ -104,17 +104,6 @@ function import_mae_from_csv(experiment_files::Vector{<:AbstractString}, sample_
 
 end
 
-# experiment_files = [joinpath(@__DIR__, "assets/XO_microbiota_assays.csv"),
-#                     joinpath(@__DIR__, "assets/XO_metabolites_assays.csv"),
-#                     joinpath(@__DIR__, "assets/XO_biomarkers_assays.csv")]
-
-# experiment_names = ["microbiota", "metabolites", "biomarkers"]
-
-# mae = import_mae_from_csv(experiment_files,
-#     joinpath(@__DIR__, "assets/sample_data.csv"),
-#     joinpath(@__DIR__, "assets/sample_map.csv"),
-#     experiment_names = experiment_names)
-
 function construct_assays(raw_assays::DataFrame, groups::Vector{<:AbstractString})
 
     assays = OrderedDict{String, AbstractArray}()

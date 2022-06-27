@@ -1,5 +1,5 @@
 using MicrobiomeAnalysis
-using Statistics # , SummarizedExperiments
+using Statistics
 using Test
 
 @testset "MicrobiomeAnalysis.jl" begin
