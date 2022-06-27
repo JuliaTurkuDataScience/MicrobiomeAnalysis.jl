@@ -33,7 +33,7 @@ end
     se2 = SummarizedExperiment(comm)
     comm2 = CommunityProfile(se2)
 
-    @isdefined se2
-    @isdefined comm2
+    @test @isdefined se2
+    @test @isdefined comm2
 
 end

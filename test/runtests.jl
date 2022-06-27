@@ -10,4 +10,4 @@ using SafeTestsets
 
 @safetestset "Transforming assays" begin include("test_transform.jl") end
 
-@safetestset "Retrieving artifacts" begin include("test_artifacts.jl") end
+@safetestset "Importing artifacts" begin include("test_importers.jl") end
