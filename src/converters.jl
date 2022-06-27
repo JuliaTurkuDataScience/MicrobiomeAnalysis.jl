@@ -126,30 +126,3 @@ function convert_rowdata(comm::CommunityProfile{<:Real, GeneFunction, Microbiome
     rowdata
 
 end
-
-
-using Microbiome
-# generate array with sample data
-samps = MicrobiomeSample.(["s$i" for i in 1:10]);
-
-# generate array with feature data
-taxa = [[Taxon("s$i", :species) for i in 1:10]; [Taxon("g$i", :genus) for i in 1:10]];
-
-# generate matrix with random entries
-mat = rand(20, 10);
-
-# create cp instance
-comm = CommunityProfile(mat, taxa, samps)
-
-# add some metadata about origin
-for (sample, value) in zip(1:length(samples(comm)), ["origin$i" for i in 1:length(samples(comm))])
-
-    set!(samples(comm)[sample], :origin, value)
-
-end
-
-gene_functions = GeneFunction.(["f$i" for i in 1:20], taxa)
-
-comm = CommunityProfile(mat, gene_functions, samps)
-se = SummarizedExperiment(comm)
-comm
