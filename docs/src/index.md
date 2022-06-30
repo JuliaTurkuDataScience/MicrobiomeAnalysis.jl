@@ -1,12 +1,13 @@
 # API
 
-## Package features
+MicrobiomeAnalysis.jl offrs the following features
+
 - functions and workflows for the analysis of microbiome data
+- real time-series simulation
 - ready-to-use example datasets
+- easy conversion from and to EcoJulia objects
 
-## Utility documentation
-
-### α diversity
+## α diversity
 
 ```@docs
 shannon
@@ -15,7 +16,7 @@ ginisimpson
 ginisimpson!
 ```
 
-### β diversity
+## β diversity
 
 ```@docs
 braycurtis
@@ -24,33 +25,33 @@ hellinger
 pcoa
 ```
 
-### Modelling and Simulations
+## Modelling and Simulations
 
 ```@docs
 LVmodel
 ```
 
-### Assay Transformation
+## Assay Transformation
 
 ```@docs
 transform
 transform!
 ```
 
-### Sorting and Filtering
+## Sorting and Filtering
 
 ```@docs
 select_top_taxa
 dropmissing
 ```
 
-### Visualisation
+## Visualisation
 
 ```@docs
 abundance_plot
 ```
 
-### Importing Datasets
+## Importing Datasets
 
 ```@docs
 HintikkaXOData
