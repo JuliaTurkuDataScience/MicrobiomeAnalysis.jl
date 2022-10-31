@@ -57,7 +57,7 @@ se = SummarizedExperiment(assays, row_data, col_data)
 
 ## Filtering
 
-The most convenient technique to filter a SummarizedExperiment involves the `map` function combined with either the `eachrow` or `eachcol` iterators, depending on whether you want to filter row-wise or column-wise. First, a custom condition, such as `x -> mean(x) == 10`, should be passed to `map` together with an iterator across the dimensions of the assay of interest, such as `eachcol(assay(se, "my_assay"))`. This returns a vector of indices that can be use to filter the rows or columns of the SummarizedExperiment, as shown here:
+The most convenient technique to filter a SummarizedExperiment involves the `map` function combined with either the `eachrow` or `eachcol` iterators, depending on whether you want to filter row-wise or column-wise. First, a custom condition, such as `x -> mean(x) == 10`, should be passed to `map` together with an iterator across the dimensions of the assay of interest, such as `eachcol(assay(se, "my_assay"))`. This returns a vector of indices that can be used to filter the rows or columns of the SummarizedExperiment, as shown here:
 
 ```@example re
 # drop rows with missing values in some assay
@@ -67,18 +67,18 @@ se2 = dropmissing(se, "second_assay")
 keep_rows = map(x -> maximum(x) >= 10000, eachrow(assay(se2, "first_assay")))
 se2 = se2[keep_rows, :]
 
-# filter features by that are native to the sampling site
+# filter features that are native to the sampling site
 keep_rows = map(x -> x == "true", rowdata(se2)[!, :native])
 se2 = se2[keep_rows, :]
 
-# filter samples that contain mpre than 15000 reads
+# filter samples that contain more than 15000 reads
 keep_cols = map(x -> sum(x) > 15000, eachcol(assay(se2, "second_assay")))
 se2 = se2[:, keep_cols]
 ```
 
 ## Toolkit to manipulate DataFrames
 
-The following commands come with _DataFrames.jl_ (apart from the last one) and can help you prepare the raw files and ass into a SummarizedExperiment.
+The following commands come with _DataFrames.jl_ (apart from the last one) and can help you prepare and shape the raw files into a SummarizedExperiment.
 
 - rename!
 - replace!
