@@ -49,6 +49,7 @@ dropmissing
 
 ```@docs
 abundance_plot
+composition_heatmap
 ```
 
 ## Importing Datasets

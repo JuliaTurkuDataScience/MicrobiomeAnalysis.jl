@@ -17,7 +17,7 @@ function transform(se::SummarizedExperiment, assay_name::String, method::Functio
 end
 
 """
-    transform(se::SummarizedExperiment, assay_name::String, method::Function, kwargs...; output_name::String = "transformed_" * assay_name)
+    transform!(se::SummarizedExperiment, assay_name::String, method::Function, kwargs...; output_name::String = "transformed_" * assay_name)
 
 Applies a transformation to a given assay and stores it into `se` as a new assay.
 

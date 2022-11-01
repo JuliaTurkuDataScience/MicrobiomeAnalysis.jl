@@ -1,4 +1,4 @@
-export abundance_plot
+export abundance_plot, composition_heatmap
 
 """
     abundance_plot(se::SummarizedExperiment, assay_name::String)
@@ -28,9 +28,30 @@ function abundance_plot(se::SummarizedExperiment, assay_name::String)
     labels = reshape(se.rowdata.name, (1, length(se.rowdata.name)))
 
     p = Plots.plot(se.coldata.time, Number.(assay(se, assay_name))',
-                   label = labels, legend_position = :outerleft,
-                   xaxis = "Time", yaxis = "Abundance")
+        label=labels, legend_position=:outerleft,
+        xaxis="Time", yaxis="Abundance")
 
-    return(p)
+    return (p)
+
+end
+
+"""
+    composition_heatmap(se::SummarizedExperiment, assay_name::String)
+
+Plots an assay in the form of a composition heatmap.
+
+# Arguments
+- `se::SummarizedExperiment`: the experiment object of interest.
+- `assay_name::String`: the name of the assay to base the visualisation on.
+"""
+function composition_heatmap(se::SummarizedExperiment, assay_name::String)
+
+    x = se.coldata[!, :name]
+    y = se.rowdata[!, :name]
+    z = assay(se, assay_name)
+
+    heatmap(x, y, z,
+        c = cgrad([:blue, :white, :red, :yellow]),
+        xaxis = "Samples", yaxis = "Taxa")
 
 end
