@@ -21,48 +21,37 @@ using Reexport
 @reexport using DataStructures: OrderedDict
 @reexport using DataFrames: DataFrame
 
+# alpha.jl
+export shannon, ginisimpson, shannon!, ginisimpson!
+
+# beta.jl
+export braycurtis, jaccard, hellinger, pcoa
+
+#wrappers.jl
+export LVmodel, abundance_plot, size, nrow, ncol
+
+# importers.jl
+export import_se_from_csv, import_mae_from_csv
+
+# converters.jl
+export SummarizedExperiment, CommunityProfile
+
+# artifacts.jl
+export HintikkaXOData, OKeefeDSData
+
+# transform.jl
+export transform, transform!, log10, pa, relabund, ztransform, clr
+
+# sorters.jl
+export select_top_taxa, dropmissing
+
 include("alpha.jl")
-export(shannon)
-export(ginisimpson)
-export(shannon!)
-export(ginisimpson!)
-
 include("beta.jl")
-export(braycurtis)
-export(jaccard)
-export(hellinger)
-export(pcoa)
-
 include("wrappers.jl")
-export(LVmodel)
-export(abundance_plot)
-export(size)
-export(nrow)
-export(ncol)
-
 include("importers.jl")
-export(import_se_from_csv)
-export(import_mae_from_csv)
-
 include("converters.jl")
-export(SummarizedExperiment)
-export(CommunityProfile)
-
 include("artifacts.jl")
-export(HintikkaXOData)
-export(OKeefeDSData)
-
 include("transform.jl")
-export(transform)
-export(transform!)
-export(log10)
-export(pa)
-export(relabund)
-export(ztransform)
-export(clr)
-
 include("sorters.jl")
-export(select_top_taxa)
-export(dropmissing)
 
 end
