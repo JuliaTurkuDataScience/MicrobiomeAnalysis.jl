@@ -1,18 +1,17 @@
+
 """
     SummarizedExperiment(comm::CommunityProfile)
-
 Converts a CommunityProfile to a SummarizedExperiment object.
-
 # Arguments
 - `comm::CommunityProfile`: the CommunityProfile to be converted.
 """
 function SummarizedExperiment(comm::CommunityProfile)
 
     counts = abundances(comm)
-    assays = OrderedDict{String,AbstractArray}("comm" => counts)
+    assays = OrderedDict{String, AbstractArray}("comm" => counts)
 
-    rowdata = convert_rowdata(comm)
-
+    rowdata = convert_rowdata(comm) 
+    
     coldata = DataFrame()
     symlist = [i for i in keys(metadata(comm)[1])]
 
@@ -32,9 +31,7 @@ end
 
 """
     CommunityProfile(se::SummarizedExperiment)
-
 Converts a SummarizedExperiment object to a CommunityProfile.
-
 # Arguments
 - `se::SummarizedExperiment`: the SummarizedExperiment object to be converted.
 """
@@ -47,7 +44,7 @@ function CommunityProfile(se::SummarizedExperiment)
 
     for (idx, row) in enumerate(eachrow(se.rowdata))
 
-        not_missing_taxa = names(row)[collect(.~ismissing.(values(row)))]
+        not_missing_taxa = names(row)[collect(.~ ismissing.(values(row)))]
 
         for taxon in tax_ranks
 
@@ -68,28 +65,28 @@ function CommunityProfile(se::SummarizedExperiment)
     for key in Symbol.(names(se.coldata)[2:end])
 
         for (idx, row) in enumerate(eachrow(se.coldata))
-
+        
             set!(samples(comm)[idx], key, row[key])
-
+    
         end
-
+    
     end
 
     comm
 
 end
 
-function convert_rowdata(comm::CommunityProfile{<:Real,Taxon,MicrobiomeSample})
+function convert_rowdata(comm::CommunityProfile{<:Real, Taxon, MicrobiomeSample})
 
     rowdata = DataFrame(
-        name=featurenames(comm)
+        name = featurenames(comm)
     )
 
     taxa = unique([feature.rank for feature in features(comm)])
 
     for taxon in taxa
 
-        rowdata[!, taxon] = Vector{Union{Missing,String}}(missing, size(rowdata, 1))
+        rowdata[!, taxon] = Vector{Union{Missing, String}}(missing, size(rowdata, 1))
 
     end
 
@@ -103,17 +100,17 @@ function convert_rowdata(comm::CommunityProfile{<:Real,Taxon,MicrobiomeSample})
 
 end
 
-function convert_rowdata(comm::CommunityProfile{<:Real,GeneFunction,MicrobiomeSample})
+function convert_rowdata(comm::CommunityProfile{<:Real, GeneFunction, MicrobiomeSample})
 
     rowdata = DataFrame(
-        name=featurenames(comm)
+        name = featurenames(comm)
     )
 
     taxa = unique([feature.taxon.rank for feature in features(comm)])
 
     for taxon in taxa
 
-        rowdata[!, taxon] = Vector{Union{Missing,String}}(missing, size(rowdata, 1))
+        rowdata[!, taxon] = Vector{Union{Missing, String}}(missing, size(rowdata, 1))
 
     end
 
