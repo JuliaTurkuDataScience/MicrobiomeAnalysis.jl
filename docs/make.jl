@@ -1,4 +1,5 @@
 push!(LOAD_PATH,"../src/")
+using Plots, MultivariateStats
 using MicrobiomeAnalysis, Documenter
 ENV["GKSwstype"] = "100"
 
