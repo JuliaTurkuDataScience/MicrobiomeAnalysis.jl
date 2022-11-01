@@ -1,4 +1,4 @@
-using MicrobiomeAnalysis
+using MicrobiomeAnalysis, Plots
 using Test
 
 @testset "MicrobiomeAnalysis.jl" begin
