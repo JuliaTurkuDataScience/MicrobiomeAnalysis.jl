@@ -1,6 +1,6 @@
 # API
 
-MicrobiomeAnalysis.jl offrs the following features
+MicrobiomeAnalysis.jl offers the following features
 
 - functions and workflows for the analysis of microbiome data
 - real time-series simulation
