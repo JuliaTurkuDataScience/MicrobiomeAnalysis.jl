@@ -1,7 +1,9 @@
 
 """
     SummarizedExperiment(comm::CommunityProfile)
+
 Converts a CommunityProfile to a SummarizedExperiment object.
+
 # Arguments
 - `comm::CommunityProfile`: the CommunityProfile to be converted.
 """
@@ -31,7 +33,9 @@ end
 
 """
     CommunityProfile(se::SummarizedExperiment)
+
 Converts a SummarizedExperiment object to a CommunityProfile.
+
 # Arguments
 - `se::SummarizedExperiment`: the SummarizedExperiment object to be converted.
 """
