@@ -1,7 +1,3 @@
-<p align="center">
-<img width="250px" src="https://github.com/JuliaTurkuDataScience/MicrobiomeAnalysis.jl/blob/main/docs/src/assets/logo.png"/>
-</p>
-
 # MicrobiomeAnalysis.jl
 
 [![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://juliaturkudatascience.github.io/MicrobiomeAnalysis.jl/dev/readme/)
