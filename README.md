@@ -3,6 +3,7 @@
 [![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://juliaturkudatascience.github.io/MicrobiomeAnalysis.jl/dev/readme/)
 [![CI](https://github.com/JuliaTurkuDataScience/MicrobiomeAnalysis.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/JuliaTurkuDataScience/MicrobiomeAnalysis.jl/actions/workflows/CI.yml)
 [![codecov](https://codecov.io/gh/JuliaTurkuDataScience/MicrobiomeAnalysis.jl/branch/main/graph/badge.svg?token=VHEH1ZQLPA)](https://codecov.io/gh/JuliaTurkuDataScience/MicrobiomeAnalysis.jl)
+[![Downloads](https://img.shields.io/badge/dynamic/json?url=http%3A%2F%2Fjuliapkgstats.com%2Fapi%2Fv1%2Ftotal_downloads%2FMicrobiomeAnalysis&query=total_requests&label=Downloads)](https://juliapkgstats.com/pkg/MicrobiomeAnalysis)
 
 This package provides common methods for microbiome analysis based on the [SummarizedExperiment](https://ltla.github.io/SummarizedExperiments.jl/dev/) and [MultiAssayExperiment](https://ltla.github.io/MultiAssayExperiments.jl/dev/) data containers. This work in Julia language reflects [related developments in R](https://github.com/microbiome/mia/) and has its own presentation at [JuliaCon 2022](https://www.youtube.com/watch?v=3PYFqwEQAb8&t=158s).
 

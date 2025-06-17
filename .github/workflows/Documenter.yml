@@ -3,40 +3,25 @@ name: Documenter
 on:
   push:
     branches: [main]
+    tags: [v*]
   pull_request:
-    branches: [main]
 
 jobs:
-  docs:
+  Documenter:
+    permissions:
+      contents: write
+      statuses: write
     name: Documentation
     runs-on: ubuntu-latest
     steps:
-      - name: Check out
-        uses: actions/checkout@v2
-
-      - name: Set up Julia
-        uses: julia-actions/setup-julia@v1
+      - uses: actions/checkout@v4
+      - uses: julia-actions/setup-julia@v2
         with:
-          version: '1.7'
-
-      - name: Build package
-        run: |
-          julia --project=docs -e '
-            import Pkg; Pkg.add("Documenter")
-            using Pkg
-            Pkg.develop(PackageSpec(path=pwd()))
-            Pkg.instantiate()'
-
-      - name: Run doctests
-        run: |
-          julia --project=docs -e '
-            import Pkg; Pkg.add("Documenter")
-            using Documenter: doctest
-            using MicrobiomeAnalysis
-            doctest(MicrobiomeAnalysis)'
-
-      - name: Deploy documentation
-        run: julia --project=docs docs/make.jl
+          version: '1.11'
+          show-versioninfo: true
+      - uses: julia-actions/cache@v2
+      - uses: julia-actions/julia-buildpkg@v1
+      - uses: julia-actions/julia-docdeploy@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DOCUMENTER_KEY: ${{ secrets.DOCUMENTER_KEY }}
